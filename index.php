@@ -26,9 +26,50 @@ include_once("components/navbar.php");
 
 
  <style>
-  .owl-nav.disabled{
-    display: none !important;
-  }
+.owl-nav.disabled{
+   display: none !important;
+}
+
+.parent-container-alert {
+   position: relative;
+}   
+.transparent-bg {
+    background-color: rgba(0, 0, 0, 0); 
+    border: none; /* No border */
+    box-shadow: none; /* No shadow */
+}
+.alert-overlay {
+    text-align: center;
+    width: 100%; /* Adjust the width as needed */
+    margin: 0 auto;
+    
+}
+
+.alert {
+    margin: 0;
+    border-radius: 0;
+    font-size: 1em; 
+    white-space: wrap; 
+}
+
+.alert-dismissible {
+    padding-right: 35px; /* To make space for the close button */
+}
+
+.alert strong {
+    font-weight: bold;
+}
+
+/* Responsive Font Sizing using Media Queries */
+@media (max-width: 992px) {
+    :root {
+        font-size: 14px; /* Adjust base font size for smaller screens */
+    }
+
+    .alert {
+        font-size: 0.875em; /* Adjust font size for smaller screens */
+    }
+}
 </style>   
 
    <!---------NAVBAR START------>
@@ -83,44 +124,9 @@ if($sql->rowCount()>0){
 }
 ?>
 
-<?php   if($isPackageActive == 1){
-        echo '<div class="alert alert-danger alert-dismissible">
-        <strong>Your Package is about to expire. Please Purchase New Package to Start Using Our Service.</strong>
-        </div>';
-    } else  if($isPackageActive == 2){
-        echo '<div class="alert alert-danger alert-dismissible">
-        <strong>Your Package is expired. Please Purchase New Package to Start Using Our Service.</strong>
-        </div>';
-    }  
-?>   
 
-<?php if(isset($_SESSION['successMsg'])): ?>
-    <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
-        <div class="d-flex align-items-center">
-            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
-            </div>
-            <div class="ms-3">
-                <h6 class="mb-0 text-white">Success </h6>
-                <div class="text-white"><?php echo $_SESSION['successMsg']; ?></div>
-            </div>
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    <?php  unset($_SESSION['successMsg']);     endif;  ?>
-    
-    <?php if(isset($_SESSION['errorMsg'])): ?>
-    <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-        <div class="d-flex align-items-center">
-            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
-            </div>
-            <div class="ms-3">
-                <h6 class="mb-0 text-white">Error </h6>
-                <div class="text-white"><?php echo $_SESSION['errorMsg']; ?></div>
-            </div>
-        </div>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-<?php  unset($_SESSION['errorMsg']);     endif;  ?>
+
+
 
 <div class="left">
    <img src="assets-new/images/logo/logo.svg" class="logo">
@@ -141,6 +147,52 @@ if($sql->rowCount()>0){
 
 </div>
 <div class="middle">
+
+<!-- Start alert div managing -->
+<div class="parent-container-alert">
+<?php   
+   if($isPackageActive == 1){
+        echo '<div class="alert-overlay"><div class="alert alert-danger alert-dismissible transparent-bg">
+        <strong>Your Package is about to expire. Please Purchase New Package to Start Using Our Service.</strong>
+        </div></div>';
+    } else  if($isPackageActive == 2){
+        echo '<div class="alert-overlay"><div class="alert alert-danger alert-dismissible transparent-bg">
+        <strong>Your Package is expired. Please Purchase New Package to Start Using Our Service.</strong>
+        </div></div>';
+    }  
+?>   
+
+<?php if(isset($_SESSION['successMsg'])): ?>
+    <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
+        <div class="d-flex align-items-center">
+            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+            </div>
+            <div class="ms-3">
+                <h6 class="mb-0">Success </h6>
+                <div class=""><?php echo $_SESSION['successMsg']; ?></div>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    <?php  unset($_SESSION['successMsg']);     endif;  ?>
+    
+    <?php if(isset($_SESSION['errorMsg'])): ?>
+    <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+        <div class="d-flex align-items-center">
+            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+            </div>
+            <div class="ms-3">
+                <h6 class="mb-0">Error </h6>
+                <div class=""><?php echo $_SESSION['errorMsg']; ?></div>
+            </div>
+        </div>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<?php  unset($_SESSION['errorMsg']);     endif;  ?>
+</div>
+
+<!-- END alert div managing -->
+
    
    <h1>
       <!-- <img src="assets-new/images/icons/profile.png"> -->
@@ -472,6 +524,9 @@ if($sql->rowCount()>0){
 <script src="assets-new/js/owl.carousel.min.js"></script>
 <script src="assets-new/js/sweetalert2.min.js"></script>
 
+<!--Added for alert Include Bootstrap CSS and JavaScript -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
