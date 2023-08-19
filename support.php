@@ -70,7 +70,7 @@ if (isset($_POST['submit_ticket'])) {
 <section id="outer">
 
    <!---------SIDEBAR START------>
-<?php echo sidebar_(); ?>
+<?php echo sidebar_($userStatus); ?>
    <!-----SIDEBAR END---->
 
 <div class="middlee">

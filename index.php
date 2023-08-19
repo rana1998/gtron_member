@@ -7,6 +7,8 @@ include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
 
+print_r($userStatus);
+
 ?>
 
 <!DOCTYPE html>
@@ -129,7 +131,7 @@ if($sql->rowCount()>0){
 
 
  <!---------SIDEBAR START------>
- <?php echo sidebar_(); ?>
+ <?php echo sidebar_($userStatus); ?>
    <!-----SIDEBAR END---->
 
 <!-- <div class="left">

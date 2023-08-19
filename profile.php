@@ -524,7 +524,7 @@ if(isset($_POST['updateUsdtAddress']))
 <section id="outer">
 
    <!---------SIDEBAR START------>
-<?php echo sidebar_(); ?>
+<?php echo sidebar_($userStatus); ?>
    <!-----SIDEBAR END---->
 
 <div class="middlee">
