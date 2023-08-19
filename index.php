@@ -7,7 +7,6 @@ include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
 
-print_r($userStatus);
 
 ?>
 
