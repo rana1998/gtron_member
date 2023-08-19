@@ -4,13 +4,13 @@ session_start();
 
  
     $mysql_host = 'localhost';
-	// $mysql_username = 'arialkhk_gtron';
-	// $mysql_password = 'gtron@12g';
-	// $mysql_database = 'arialkhk_gtron';
+	$mysql_username = 'arialkhk_gtron';
+	$mysql_password = 'gtron@12g';
+	$mysql_database = 'arialkhk_gtron';
   
-    $mysql_username = 'root';
-    $mysql_password = '';
-    $mysql_database = 'arialkhk_gtron';
+    // $mysql_username = 'arialkhk_gtron';
+    // $mysql_password = "?G/L!26=@";
+    // $mysql_database = 'arialkhk_gtron';
 
 $con =$conn= new mysqli($mysql_host, $mysql_username, $mysql_password);
     

@@ -1,8 +1,9 @@
 <?php
-include_once("components/footer.php");
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
+include_once("components/footer.php");
+
 
 // Suppress warnings for this block of code
 error_reporting(E_ALL & ~E_WARNING);

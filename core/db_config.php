@@ -4,6 +4,10 @@ function getDB()
     $servername = "localhost";
     $username = "root";
     $password = "";
+
+    // $servername = "localhost";
+    // $username = "arialkhk_gtron";
+    // $password = "?G/L!26=@";
     
     try {
         $conn = new PDO("mysql:host=$servername;dbname=arialkhk_gtron", $username, $password);

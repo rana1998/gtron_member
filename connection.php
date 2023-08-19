@@ -12,6 +12,10 @@ session_start();
     $mysql_password = '';
     $mysql_database = 'arialkhk_gtron';
 
+    // $mysql_username = 'arialkhk_gtron';
+    // $mysql_password = "?G/L!26=@";
+    // $mysql_database = 'arialkhk_gtron';
+
 $con =$conn= new mysqli($mysql_host, $mysql_username, $mysql_password);
     
 // Check connection

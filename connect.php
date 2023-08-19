@@ -6,6 +6,10 @@ $servername = "localhost";
 // $password = "gtron@12g";
 $username = "root";
 $password = "";
+
+// $servername = "localhost";
+// $username = "arialkhk_gtron";
+// $password = "?G/L!26=@";
  
 
 

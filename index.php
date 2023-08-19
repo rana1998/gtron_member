@@ -2,10 +2,11 @@
 ob_start();
 $page_title="Dashboard";
 
-include_once("components/footer.php");
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
+include_once("components/footer.php");
+
 
 
 ?>
@@ -133,24 +134,6 @@ if($sql->rowCount()>0){
  <?php echo sidebar_($userStatus); ?>
    <!-----SIDEBAR END---->
 
-<!-- <div class="left">
-   <img src="assets-new/images/logo/logo.svg" class="logo">
-   <ul>
-      <li><a><img src="assets-new/images/icons/dashboard.svg" class="icon">Dashboard</a></li>
-      <li><a><img src="assets-new/images/icons/link.svg" class="icon">Copy Sponsor Link</a></li>
-      <li><a><img src="assets-new/images/icons/profile.svg" class="icon">Profile</a></li>
-      <li><a><img src="assets-new/images/icons/kyc.svg" class="icon">KYC</a></li>
-      <li><a><img src="assets-new/images/icons/buy.svg" class="icon">Buy Package</a></li>
-      <li><a><img src="assets-new/images/icons/withdrawal.svg" class="icon">Withdrawal</a></li>
-      <li><a><img src="assets-new/images/icons/wallet_transfer.svg" class="icon">Internal Wallet Transfer</a></li>
-      <li><a><img src="assets-new/images/icons/network.svg" class="icon">Network</a></li>
-      <li><a><img src="assets-new/images/icons/summary.svg" class="icon">Summary</a></li>
-      <li><a><img src="assets-new/images/icons/support.svg" class="icon">Support</a></li>
-   </ul>
-   
-   <button class="logout"><img src="assets-new/images/icons/logout.svg">Logout</button>
-
-</div> -->
 <div class="middle">
 
 <!-- Start alert div managing -->
@@ -200,13 +183,13 @@ if($sql->rowCount()>0){
 
    
    <h1>
-      <!-- <img src="assets-new/images/icons/profile.png"> -->
+      <!-- <img src="assets/images/icons/profile.png"> -->
       <img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>">
       Welcome, <span><?php echo $fectchUserName;?></span>
    </h1>
 
    <div class="input-div">
-    <img src="assets-new/images/icons/search.svg" class="search-icon">  
+    <img src="assets/images/icons/search.svg" class="search-icon">  
    <input class="search" type="search"  aria-label="Search">
     <button class="search-btn">Search</button>
    </div>
@@ -216,7 +199,7 @@ if($sql->rowCount()>0){
       <div class="col-md-8 wallet-div">
          <!-- <p>Wallet address : <span>0xAB99a674486F9A2856958214B413a33b91F1a4Df</span></p>  -->
          <p>Wallet address : <span><?= $userUsdtTrcAdress ;?></span></p> 
-         <button class="copy-btn"><img src="assets-new/images/icons/copy.svg">Copy</button>
+         <button class="copy-btn"><img src="assets/images/icons/copy.svg">Copy</button>
       </div>
       <div class="col-md-4 id-div">
          <div class="id-div-inner">
@@ -233,19 +216,19 @@ if($sql->rowCount()>0){
       <div class="col-md-4 l-div">
 
          <div class="violet-div">
-            <img src="assets-new/images/violet-graph.png">
+            <img src="assets/images/violet-graph.png">
             <p>Current Balance</p>
             <h2>$<?= number_format($userCurrentBalance,2);?></h2>
          </div>
           
          <!-- <div class="orange-div">
-            <img src="assets-new/images/orange-graph.png">
+            <img src="assets/images/orange-graph.png">
             <p>Direct Referal</p>
             <h2>$8,964.00</h2>
          </div> -->
 
          <div class="orange-div">
-            <img src="assets-new/images/orange-graph.png">
+            <img src="assets/images/orange-graph.png">
             <p>Direct Referral</p>
             <h2><?= $totalDirectReferalCount ?></h2>
          </div>
@@ -275,7 +258,7 @@ if($sql->rowCount()>0){
                   <h2>$795.55</h2>
                </div>
                <div class="col-md-5">
-                  <img src="assets-new/images/pink-graph.png">
+                  <img src="assets/images/pink-graph.png">
                </div>
             </div>
             <button>View</button>
@@ -288,7 +271,7 @@ if($sql->rowCount()>0){
                   <h2>$<?= number_format($pendingBalance,2);?></h2>
                </div>
                <div class="col-md-5">
-                  <img src="assets-new/images/pink-graph.png">
+                  <img src="assets/images/pink-graph.png">
                </div>
             </div>
             <button>View</button>
@@ -303,7 +286,7 @@ if($sql->rowCount()>0){
                   <h2>$1,556.00</h2>
                </div>
                <div class="col-md-5">
-                  <img src="assets-new/images/green-graph.png">
+                  <img src="assets/images/green-graph.png">
                </div>
             </div>
       </div> -->
@@ -314,7 +297,7 @@ if($sql->rowCount()>0){
                   <h2>$<?=number_format($total_invest,2)?></h2>
                </div>
                <div class="col-md-5">
-                  <img src="assets-new/images/green-graph.png">
+                  <img src="assets/images/green-graph.png">
                </div>
             </div>
       </div>
@@ -327,7 +310,7 @@ if($sql->rowCount()>0){
                   <h2>$1,375.00</h2>
                </div>
                <div class="col-md-5 col-5">
-                  <img src="assets-new/images/blue-graph-1.png">
+                  <img src="assets/images/blue-graph-1.png">
                </div>
             </div> -->
             <div class="row">
@@ -349,7 +332,7 @@ if($sql->rowCount()>0){
                   <h2>$<?php echo number_format($pool_bonus,2); ?></h2>
                </div>
                <div class="col-md-5 col-5">
-                  <img src="assets-new/images/blue-graph-1.png">
+                  <img src="assets/images/blue-graph-1.png">
                </div>
             </div>
 
@@ -359,7 +342,7 @@ if($sql->rowCount()>0){
                   <h2>$1,375.00</h2>
                </div>
                <div class="col-md-5 col-5">
-                  <img src="assets-new/images/blue-graph-2.png">
+                  <img src="assets/images/blue-graph-2.png">
                </div>
             </div> -->
 
@@ -375,7 +358,7 @@ if($sql->rowCount()>0){
                   <h2>$<?=number_format($threexcamountt,2)?></h2>
                </div>
                <div class="col-md-5 col-5">
-                  <img src="assets-new/images/blue-graph-2.png">
+                  <img src="assets/images/blue-graph-2.png">
                </div>
             </div>
 
@@ -389,7 +372,7 @@ if($sql->rowCount()>0){
          <!-- <div class="white-div">
             <p>ACTIVE PACKAGE</p>
             <h2>100</h2>
-            <img src="assets-new/images/white-graph.png">
+            <img src="assets/images/white-graph.png">
          </div> -->
 
          <div class="white-div">
@@ -406,7 +389,7 @@ if($sql->rowCount()>0){
                   }
             ?>
             <h2>$<?php echo number_format($active_investment,2); ?></h2>
-            <img src="assets-new/images/white-graph.png">
+            <img src="assets/images/white-graph.png">
          </div>
 
          <div class="row">
@@ -416,12 +399,12 @@ if($sql->rowCount()>0){
             </div>
          </div>
 
-         <button class="upgrade-btn"><img src="assets-new/images/icons/upgrade.svg">Upgrade</button>
+         <button class="upgrade-btn"><img src="assets/images/icons/upgrade.svg">Upgrade</button>
 
          <hr/>
 
          <p>SUPER REWARDS</p>
-         <img src="assets-new/images/rewards.png" class="rewards">
+         <img src="assets/images/rewards.png" class="rewards">
 
          <button class="tree-btn">Tree View</button>
          <button class="activated-btn">4x Activated</button>
@@ -439,21 +422,21 @@ if($sql->rowCount()>0){
 <div class="row">
    <div class="col-md-5 tree-div-outer">
       <div class="tree-div">
-         <img src="assets-new/images/tree-view.png">
+         <img src="assets/images/tree-view.png">
          <hr/>
          <h2>Tree View</h2>
       </div>
    </div>
    <div class="col-md-7 announcements-outer">
       <div class="announcements">
-         <h2><img src="assets-new/images/icons/horn.svg">Announcements:</h2>
-         <p><img src="assets-new/images/icons/hor.svg">Refer more than 4 people and get exciting 
+         <h2><img src="assets/images/icons/horn.svg">Announcements:</h2>
+         <p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
 <b>GTRON Rewards.</b></p>
-<p><img src="assets-new/images/icons/hor.svg">Refer more than 4 people and get exciting 
+<p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
 <b>GTRON Rewards.</b></p>
-<p><img src="assets-new/images/icons/hor.svg">Refer more than 4 people and get exciting 
+<p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
 <b>GTRON Rewards.</b></p>
-<p><img src="assets-new/images/icons/hor.svg">Refer more than 4 people and get exciting 
+<p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
 <b>GTRON Rewards.</b></p>
       </div>
    </div>
@@ -476,10 +459,10 @@ if($sql->rowCount()>0){
 <div class="right">
    
 <button class="profile-btn">
-<!-- <img src="assets-new/images/icons/profile.png"> -->
+<!-- <img src="assets/images/icons/profile.png"> -->
 <img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>">
 <?php echo $fectchUserName;?></button>
-<h2><img src="assets-new/images/icons/withdrawals.svg">WITHDRAWALS</h2>
+<h2><img src="assets/images/icons/withdrawals.svg">WITHDRAWALS</h2>
 
 
 <div class="row">
@@ -494,7 +477,7 @@ if($sql->rowCount()>0){
 
 <div class="white-div text-center">
    <input type="text" name="" placeholder="Enter Here">
-   <button class="withdraw-btn"><img src="assets-new/images/icons/withdraw.svg">Withdraw</button>
+   <button class="withdraw-btn"><img src="assets/images/icons/withdraw.svg">Withdraw</button>
 </div>
 
 
@@ -525,9 +508,9 @@ if($sql->rowCount()>0){
 
 <!--------------------------- SCRIPTS ------------------------------------->
 
-<script src="assets-new/js/bootstrap.min.js"></script>
-<script src="assets-new/js/owl.carousel.min.js"></script>
-<script src="assets-new/js/sweetalert2.min.js"></script>
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/sweetalert2.min.js"></script>
 
 <!--Added for alert Include Bootstrap CSS and JavaScript -->
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">

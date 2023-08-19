@@ -8,6 +8,10 @@ $username = "root";
 $password = "";
  
 
+// $servername = "localhost";
+// $username = "arialkhk_gtron";
+// $password = "?G/L!26=@";
+
 
 try {
 
