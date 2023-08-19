@@ -1,102 +1,148 @@
 <?php
-$page_title = 'Withdrawal Summary';
-include 'header.php'; 
-
-
-
+include_once("components/footer.php");
+include_once("components/header_links.php");
+include_once("components/navbar.php");
+include_once("components/sidebar.php");
 ?>
 
-<!-- Page Content Start Here -->
-<div class="page-wrapper">
-    <div class="page-content">
-        <!-- Breadcrumb-->
-        <div class="row pt-2 pb-2">
-            <div class="col-sm-9">
-                <h4 class="page-title"><?= $page_title; ?></h4>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li>&nbsp; / &nbsp;</li>
-                    <li class="breadcrumb-item active" aria-current="page"><?= $page_title; ?></li>
-                </ol>
-            </div>
-        </div>
-        <!-- End Breadcrumb-->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-					<div class="card-body">
-						<div class="table-responsive">
-							<table id="example2" class="table table-striped table-bordered">
-								<thead>
-									<tr>
-										<th>Sr</th>
-										<th>Amount</th>
-										<th>Fee</th>
-										<th>After Fee</th>
-										<th>Withdrawal Address</th>
-										<th>Transaction Status</th>
-										<th>Date</th>
-									</tr>
-								</thead>
-								<tbody>
-								    <?php
-								    $qyy="select  * from withdrawal where user_name='$fectchUserName'";
-								    $result = mysqli_query($con,$qyy);
-								    $count=1;
-								    while ($res=mysqli_fetch_assoc($result)){
-								    ?>
-									<tr>
-									    <td><?php echo $count?></td>
-										<td><?php echo $res['desire_amount']?></td>
-										<td><?php echo $res['tax']?></td>
-										<td><?php echo $res['amount_after_tax']?></td>
-										<td><?php echo $res['btc_address']?></td>
-										<td><?php 
-										$status= $res['status'];
-										if($status == 'Pending')
-										{
-										    echo '<span class="badge bg-warning"> Pending </span>';
-										}
-										elseif($status == 'Rejected')
-										{
-										    echo '<span class="badge bg-danger"> Rejected</span>';
-										}
-										elseif($status == 'Completed')
-										{
-										    echo '<span class="badge bg-success"> Completed </span>';
-										}
-										
-										?></td>
-										<td><?php echo $res['date']?></td>
-										
-									</tr>
-								<?php
-								$count++;
-								    }
-								?>
-								</tbody>
-								<tfoot>
-									<tr>
-									<th>Sr</th>
-										<th>Amount</th>
-										<th>Fee</th>
-										<th>After Fee</th>
-										<th>Withdrawal Address</th>
-										<th>Transaction Status</th>
-										<th>Date</th>
-									</tr>
-								</tfoot>
-							</table>
-						</div>
-					</div>
-				</div>
-                
-                
-            </div>
-        </div>
-    </div>
-    <!-- End container-fluid-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
     
-    </div><!--End content-wrapper-->
-    
-    <?php include 'footer.php'; ?>
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+	<title>Gtron MLM | Withdrawal Summary</title>
+     
+  <?php echo header_links(); ?>
+
+</head>
+<body >
+
+
+ <style>
+  .owl-nav.disabled{
+    display: none !important;
+  }
+</style>   
+
+   <!---------NAVBAR START------>
+<?php echo navbar_(); ?>
+   <!-----NAVBAR END---->
+
+
+
+<section id="outer">
+
+   <!---------SIDEBAR START------>
+<?php echo sidebar_(); ?>
+   <!-----SIDEBAR END---->
+
+<div class="middlee">
+   
+<h2><img src="assets/images/icons/notice.svg">WITHDRAWAL SUMMARY<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="bonuses-summary.php">/ Withdrawal Summary</a></span></h2>
+
+<button class="profile-btn"><img src="assets/images/icons/profile.png">Jayson Smith</button>
+
+
+<div class="row pendingrow">
+   <div class="col-md-12 pending">
+     
+<div class="table-responsive">      
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Sr</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Fee</th>
+      <th scope="col">After Fee</th>
+      <th scope="col">Withdrawal Address</th>
+      <th scope="col">Transaction Status</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php
+    $qyy="select  * from withdrawal where user_name='$fectchUserName'";
+    $result = mysqli_query($con,$qyy);
+    $count=1;
+    while ($res=mysqli_fetch_assoc($result)){
+    ?>
+    <tr>
+        <td><?php echo $count?></td>
+        <td><?php echo $res['desire_amount']?></td>
+        <td><?php echo $res['tax']?></td>
+        <td><?php echo $res['amount_after_tax']?></td>
+        <td><?php echo $res['btc_address']?></td>
+        <td><?php 
+        $status= $res['status'];
+        if($status == 'Pending')
+        {
+            echo '<span class="badge bg-warning"> Pending </span>';
+        }
+        elseif($status == 'Rejected')
+        {
+            echo '<span class="badge bg-danger"> Rejected</span>';
+        }
+        elseif($status == 'Completed')
+        {
+            echo '<span class="badge bg-success"> Completed </span>';
+        }
+        
+        ?></td>
+        <td><?php echo $res['date']?></td>
+        
+    </tr>
+<?php
+$count++;
+    }
+?>
+</tbody>
+  <thead>
+    <tr>
+      <th scope="col">Sr</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Fee</th>
+      <th scope="col">After Fee</th>
+      <th scope="col">Withdrawal Address</th>
+      <th scope="col">Transaction Status</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+</table>
+</div>
+
+   </div>
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+   <!---------FOOTER START------>
+<?php echo footer_(); ?>
+   <!---------FOOTER END------>
+
+<!--------------------------- SCRIPTS ------------------------------------->
+
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/sweetalert2.min.js"></script>
+
+
+</body>
+</html>

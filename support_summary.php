@@ -1,8 +1,8 @@
 <?php
-include_once("template-parts/footer.php");
-include_once("template-parts/header_links.php");
-include_once("template-parts/navbar.php");
-include_once("template-parts/sidebar.php");
+include_once("components/footer.php");
+include_once("components/header_links.php");
+include_once("components/navbar.php");
+include_once("components/sidebar.php");
 ?>
 
 <!DOCTYPE html>
@@ -45,8 +45,11 @@ include_once("template-parts/sidebar.php");
    
 <h2><img src="assets/images/icons/supportt.svg">SUPPORT SUMMARY<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="support-summary.php">/ Support Summary</a></span></h2>
 
-<button class="profile-btn"><img src="assets/images/icons/profile.png">Jayson Smith</button>
-
+<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
+    echo "assets/images/icons/profile.png";
+}?>"><?php if($full_name != '') { echo $full_name; } else {
+    echo $user_name;
+}?></button>
 
 <div class="row pendingrow">
    <div class="col-md-12 pending">
@@ -64,13 +67,26 @@ include_once("template-parts/sidebar.php");
     </tr>
   </thead>
   <tbody>
-    <!-- <tr>
-      <td><p>1</p></td>
-      <td><p>MLM1</p></td>
-      <td><p>$50</p></td>
-      <td><p>USDT (TRC20)</p></td>
-    </tr> -->
-  </tbody>
+        <?php
+        $qyy="select  * from support where  user_name='$fectchUserName'";
+        $result = mysqli_query($con,$qyy);
+        $count=1;
+        while ($res=mysqli_fetch_assoc($result)){
+        ?>
+        <tr>
+            <td><?php echo $count?></td>
+            <td><?php echo $res['subject']?></td>
+            <td><?php echo $res['message']?></td>
+            <td><?php echo $res['reply']?></td>
+            <td><?php echo $res['status']?></td>
+            <td><?php echo $res['date']?></td>
+            
+        </tr>
+    <?php
+    $count++;
+        }
+    ?>
+    </tbody>
   <thead>
     <tr>
       <th scope="col">Sr</th>
