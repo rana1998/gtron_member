@@ -1,38 +1,21 @@
-<?php
-include_once("components/footer.php");
-include_once("components/header_links.php");
-include_once("components/navbar.php");
-include_once("components/sidebar.php");
-?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-  <meta charset="utf-8">
-
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.7/css/boxicons.min.css">
-
-
-	<title>Gtron MLM | Profile</title>
-     
-  <?php echo header_links(); ?>
-
-</head>
-<body >
-
-
- <style>
-  .owl-nav.disabled{
-    display: none !important;
-  }
-</style>   
-
 <?php 
+ob_start();
+$page_title = 'Profile';
+include 'header.php'; 
 
+// $sql="SELECT * FROM user_registration WHERE user_name = ?";
+// $stmt = $con->prepare($sql); 
+// $stmt->bind_param("s", $user_name);
+// $stmt->execute();
+// $result = $stmt->get_result(); // get the mysqli result
+
+// if ($result->num_rows > 0) {
+//     $data = $result->fetch_assoc();
+// }
+// $stmt->close();
+
+
+// require 'connect.php';
 include 'core/db_config.php';
 $conn = getDB();
 
@@ -56,6 +39,7 @@ if($sql->rowCount()>0){
         }
     }
 }
+
 
 if(isset($_POST['edit_profile']) ){
     $full_name=mysqli_real_escape_string($con, $_POST['full_name']);
@@ -511,390 +495,376 @@ if(isset($_POST['updateUsdtAddress']))
         
         
     }
+    
+    
+    
+    
 }
 
 ?>
+<!--start page wrapper -->
+<style>
+    .alert{
+        margin-top: 30px;
+    }
+</style>
+		<div class="page-wrapper">
+			<div class="page-content">
+			
+				<div class="container">
+					<div class="main-body">
+						<div class="row">
+							<div class="col-lg-4">
+								<div class="card">
+									<div class="card-body">
+										<div class="d-flex flex-column align-items-center text-center">
+											<img src="assets/images/user-profile/<?=$userImage?>" alt="Admin" class="rounded-circle p-1 bg-primary" width="120">
+											<div class="mt-3">
+												<h4 class="text-capitalize"><?= $full_name?></h4>
+												<!--<input type="file" class="btn btn-sm">-->
+												<!--<button class="btn btn-primary btn-sm">Upload</button>-->
+    											<form method="POST" enctype="multipart/form-data" >
+    											    <div class="input-group">
+                    									<input type="file" name="profile_pic" class="form-control form-control-sm" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                    									<button class="btn btn-secondary btn-sm" type="submit" name="image_upload" id="inputGroupFileAddon04">Upload</button>
+                								    </div>
+    											</form>
+            								</div>
+										</div>
+										<hr class="my-4" />
+										<ul class="list-group list-group-flush">
+										    <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+												<h6 class="mb-0">Registered Date</h6>
+												
+												<?php
 
-   <!---------NAVBAR START------>
-<?php echo navbar_(); ?>
-   <!-----NAVBAR END---->
+                                                echo  $regDate;
+												// if($activationFee == 'Paid')
+												// {
+												//    echo'<span class="badge bg-success">Paid</span>'; 
+												// }
+												// elseif($activationFee == 'Unpaid')
+												// {
+												//     echo'<span class="badge bg-warning">Unpaid</span>'; 
+												// }
+											
+												?>
+												<!--<span class="badge bg-success">Active</span>-->
+											</li>
+											<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+												<h6 class="mb-0">Account Status</h6>
+												
+												<?php
+												if($userStatus == 'Approved')
+												{
+												   echo'<span class="badge bg-success">Active</span>'; 
+												}
+												elseif($userStatus == 'Pending')
+												{
+												    echo'<span class="badge bg-warning">Pending</span>'; 
+												}
+												else
+												{
+												    echo'<span class="badge bg-danger">Matured</span>';
+												}
+												?>
+												<!--<span class="badge bg-success">Active</span>-->
+											</li>
+											<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+												<h6 class="mb-0">KYC Status</h6>
+												
+												<?php
+												if($userKyc == 'Verified')
+												{
+												   echo'<span class="badge bg-success">Verified</span>'; 
+												}
+												elseif($userKyc == 'Unverified')
+												{
+												    echo'<span class="badge bg-danger">Unverified</span>'; 
+												}
+												elseif($userKyc == 'Rejected')
+												{
+												    echo'<span class="badge bg-danger">Rejected</span>';
+												}
+												?>
+												<!--<span class="badge bg-success">Verified</span>-->
+											</li>
+											<li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+												<h6 class="mb-0">Current Package</h6>
+												<span class="badge bg-info">
+												   <?php
+                              if($userPkgId == 0)
+                                {
+                                    $pkgName ='No Package';
+                                }
+                                else if($userPkgId == 1)
+                                {
+                                     $pkgName = 'Starter';
+                                }
+                                else if($userPkgId == 2)
+                                {
+                                     $pkgName = 'Silver';
+                                }
+                                else if($userPkgId == 3)
+                                {
+                                     $pkgName = 'Gold';
+                                }
+                                else if($userPkgId == 4)
+                                {
+                                     $pkgName = 'Platinum';
+                                }
+                                else if($userPkgId == 5)
+                                {
+                                     $pkgName = 'Diamond';
+                                }
+                                else if($userPkgId == 6)
+                                {
+                                     $pkgName = 'Blue Diamond';
+                                }
+                                else if($userPkgId == 7)
+                                {
+                                     $pkgName = 'Black Diamond';
+                                }
+                                
+                                echo $pkgName;
+                                ?>
+												</span>
+											</li>
+											<!-- <li class="list-group-item d-flex justify-content-between align-items-center flex-wrap">
+												<h6 class="mb-0">Total Invest</h6>
+												<span class="text-info">$<?=$total_invest?></span>
+											</li> -->
+											
+											
+										</ul>
+									</div>
+								</div>
+							</div>
+							<div class="col-lg-8">
+						<div class="card">
+							<div class="card-body">
+							   
+								<ul class="nav nav-tabs nav-danger" role="tablist">
+									<li class="nav-item" role="presentation">
+										<a class="nav-link active" data-bs-toggle="tab" href="#dangerhome" role="tab" aria-selected="true">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon"><i class='bx bx-pencil font-18 me-2'></i>
+												</div>
+												<div class="tab-title">Edit</div>
+											</div>
+										</a>
+									</li>
+									
+									<!-- <li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#dangercontact" role="tab" aria-selected="false">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon"><i class='bx bx-lock font-18 me-2'></i>
+												</div>
+												<div class="tab-title">Change Password</div>
+											</div>
+										</a>
+									</li> -->
+									<!-- <li class="nav-item" role="presentation">
+										<a class="nav-link" data-bs-toggle="tab" href="#usdtAddress" role="tab" aria-selected="false">
+											<div class="d-flex align-items-center">
+												<div class="tab-icon"><i class='bx bx-wallet font-18 me-2'></i>
+												</div>
+												<div class="tab-title">USDT Address</div>
+											</div>
+										</a>
+									</li> -->
+								</ul>
+								<?php if(isset($_SESSION['successMsg'])): ?>
+                                    <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 text-white">Success </h6>
+                                                <div class="text-white"><?php echo $_SESSION['successMsg']; ?></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php  unset($_SESSION['successMsg']);     endif;  ?>
+                                    
+                                    <?php if(isset($_SESSION['errorMsg'])): ?>
+                                    <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 text-white">Error </h6>
+                                                <div class="text-white"><?php echo $_SESSION['errorMsg']; ?></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php  unset($_SESSION['errorMsg']);     endif;  ?>
+								<div class="tab-content py-3">
+									<div class="tab-pane fade show active p-3 mt-3" id="dangerhome" role="tabpanel">
+									    <form method="POST">
+										<div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Full Name</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<input type="text" name="full_name" class="form-control form-control-sm" placeholder="Enter Full Name" value="<?= $full_name?>" required/>
+											</div>
+										</div>
+                                        <div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Email</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<input name="email" type="text" class="form-control form-control-sm" placeholder="Email" value="<?= $email ?>" required />
+											</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Address</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<input type="text" name="address" class="form-control form-control-sm" placeholder="Street" value="<?= $userStreet?>" />
+											</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0"></h6>
+											</div>
+											<div class="col-sm-4 text-secondary">
+												<input type="text" name="city" class="form-control form-control-sm" placeholder="City" value="<?= $userCity?>" />
+											</div>
+											<div class="col-sm-5 text-secondary">
+												<input type="text" name="state" class="form-control form-control-sm" placeholder="State" value="<?= $userState?>" />
+											</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0"></h6>
+											</div>
+											<div class="col-sm-4 text-secondary">
+												<input type="text" name="postal_code" class="form-control form-control-sm" placeholder="Postal Code" value="<?= $userPostalCode ?>" />
+											</div>
+											<div class="col-sm-5 text-secondary">
+												<input type="text" name="phone" class="form-control form-control-sm" placeholder="Phone" value="<?=$userMobile ?>" required />
+											</div>
+										</div>
+										<div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Country</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+												<input name="country" type="text" class="form-control form-control-sm" placeholder="Country" value="<?= $userCountry ?>" />
+											</div>
+										</div>
+
+                                        <div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">Transaction Password</h6>
+											</div>
+                                            <style>
+                                            .input-group {
+                                                max-width: 100%;
+                                                width: 75%;
+                                            }</style>
+                                            <div class="col-sm-9 input-group" id="show_hide_password2">
+												    <input type="password" id="pass1" name="txnpassword" class="form-control form-control-sm" placeholder="Transaction Password"  required /><a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+									        <span style="color:red">Password Should Contain: Minimum 8 Characters, 1 Digit,  1 Capital Letter, 1 Small Letter and 1 Symbol.</span>
+                                                </div>
+                                            
+										</div>
+										<!-- <div class="row mb-3">
+											<div class="col-sm-3">
+												<h6 class="mb-0">2FA Code</h6>
+											</div>
+											<div class="col-sm-7 text-secondary">
+											    
+												<input name="otp_code" type="text" class="form-control form-control-sm" placeholder="Enter 2FA Code" value="" />
+												<b class="text-success emailMessageAjax"></b>
+											</div>
+											<div class="col-sm-2 text-secondary">
+											
+												<button class="btn btn-sm btn-secondary text-white sendOtpEmail">Send Code</button>
+											</div>
+									
+										</div> -->
+										<div class="row mt-3">
+											<div class="col-sm-3"></div>
+											<div class="col-sm-9">
+												<div class="d-flex ">
+												    <input type="submit" name="edit_profile" class="btn btn-sm bg-gradient-rose-button text-white" value="Update" />
+												</div>
+											</div>
+										</div>	
+									</div>
+									</form>
+							
+									<div class="tab-pane fade p-3" id="dangercontact" role="tabpanel">
+								    <form method="POST">
+								    <div class="row mb-3">
+										<div class="col-sm-3">
+												<h6 class="mb-0">Current Password</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+								                <div class="input-group" id="show_hide_password">
+								                    <input type="password" name="currentPassword" class="form-control form-control-sm" placeholder="Current Password" value="" /><a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+									            </div>
+										    </div>
+									</div>
+									 <div class="row mb-3">
+										<div class="col-sm-3">
+												<h6 class="mb-0">New Password</h6>
+											</div>
+											<div class="col-sm-9 text-secondary">
+											    <div class="input-group" id="show_hide_password2">
+												    <input type="password" id="pass1" name="newPassword" class="form-control form-control-sm" placeholder="New Password" value="" /><a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+									            </div>
+									              <ul class="passValidate mt-2" style="display:none">
+            									      <li class=" text-danger text-left charlength" style="font-size: 12px;">Password should be 8 character</li>
+            									      <li class="text-danger  text-left specialChar" style="font-size: 12px;">Special character must be include</li>
+            									      <li class="text-danger text-left integerMust" style="font-size: 12px;">Integer must be include</li>
+            									      <li class="text-danger  text-left captLetter mb-1" style="font-size: 12px;">Capital Letter must be include</li>
+            									   </ul>
+									    	</div>
+									</div>
+									<div class="row mb-3">
+										<div class="col-sm-3">
+												<h6 class="mb-0">Confirm Password</h6>
+											</div>
+											
+										    <div class="col-sm-9 text-secondary">
+											    <div class="input-group" id="show_hide_password3">
+												    <input type="password" id="pass2" name="confirmPassword" class="form-control form-control-sm" placeholder="New Password" value="" /><a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
+									            </div>
+									    	</div>
+									</div>
+									
+										<div class="row mt-3">
+											<div class="col-sm-3"></div>
+											<div class="col-sm-9">
+												<div class="d-flex ">
+												    <input type="submit" name="updatePassword" class="btn btn-sm bg-gradient-rose-button text-white" value="Update" />
+												</div>
+											</div>
+										</div>	
+								    </form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	
 
 
+  
 
-<section id="outer">
-
-   <!---------SIDEBAR START------>
-<?php echo sidebar_(); ?>
-   <!-----SIDEBAR END---->
-
-<div class="middlee">
-   
-<h2><img src="assets/images/icons/user.svg">USER PROFILE<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="profile.php">/ Profile</a></span></h2>
-
-<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
-    echo "assets/images/icons/profile.png";
-}?>"><?php if($full_name != '') { echo $full_name; } else {
-    echo $user_name;
-}?></button>
-
-
-<div class="row profilerow">
-   <div class="col-md-4">
-      <div class="leftprofile">
-         <div class="row">
-            <div class="col-md-12 text-center">
-               <img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
-                    echo "assets/images/icons/profile.png";
-                }?>" class="profile-img">
-               <h3><?php if($full_name != '') { echo $full_name; } else {
-                    echo $user_name;
-                }?></h3>
-                <form method="POST" enctype="multipart/form-data" >
-                    <div class="">
-                        <style>
-                             /* Hide the default file input */
-                            input[type="file"] {
-                                display: none;
-                            }
-                        </style>
-
-                        <button class="combined-btn btn btn-secondary btn-sm upload-btn">
-                            Choose File
-                        </button>
-
-                        <input type="file" name="profile_pic" class="form-control form-control-sm" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-                        <button class="btn btn-secondary btn-sm remove-btn" type="submit" name="image_upload" id="inputGroupFileAddon04">Upload</button>
-                    </div>
-                </form>
-               <!-- <button class="upload-btn">Upload New</button>
-               <button class="remove-btn">Remove Photo</button>                  -->
-            </div>
-         </div>
-         <div class="row">
-            <div class="col-md-6 col-6">
-               <h4>Registered Date</h4>
-               <h4>Account Status</h4>
-               <h4>KYC Status</h4>
-               <h4>Current Package</h4>
-            </div>
-            <div class="col-md-6 col-6 text-right">
-               <h4 class="grey"><?php
-                if($regDate != '') {
-
-                echo  $regDate;
-                // if($activationFee == 'Paid')
-                // {
-                //    echo'<span class="badge bg-success">Paid</span>'; 
-                // }
-                // elseif($activationFee == 'Unpaid')
-                // {
-                //     echo'<span class="badge bg-warning">Unpaid</span>'; 
-                // }
-                } else {
-                    echo "---";
-                }
-                ?></h4>
-               <h4 class="green">
-               <?php
-                    if($userStatus == 'Approved')
-                    {
-                        echo'<span class="badge bg-success">Active</span>'; 
-                    }
-                    elseif($userStatus == 'Pending')
-                    {
-                        echo'<span class="badge bg-warning">Pending</span>'; 
-                    }
-                    else
-                    {
-                        echo'<span class="badge bg-danger">Matured</span>';
-                    }
-                ?>
-               </h4>
-               <h4 class="green">
-               <?php
-                        if($userKyc == 'Verified')
-                        {
-                            echo'<span class="badge bg-success">Verified</span>'; 
-                        }
-                        elseif($userKyc == 'Unverified')
-                        {
-                            echo'<span class="badge bg-danger">Unverified</span>'; 
-                        }
-                        elseif($userKyc == 'Rejected')
-                        {
-                            echo'<span class="badge bg-danger">Rejected</span>';
-                        }
-                        ?>
-               </h4>
-               <h4 class="blue">
-               <?php
-                    if($userPkgId == 0)
-                    {
-                        $pkgName ='No Package';
-                    }
-                    else if($userPkgId == 1)
-                    {
-                            $pkgName = 'Starter';
-                    }
-                    else if($userPkgId == 2)
-                    {
-                            $pkgName = 'Silver';
-                    }
-                    else if($userPkgId == 3)
-                    {
-                            $pkgName = 'Gold';
-                    }
-                    else if($userPkgId == 4)
-                    {
-                            $pkgName = 'Platinum';
-                    }
-                    else if($userPkgId == 5)
-                    {
-                            $pkgName = 'Diamond';
-                    }
-                    else if($userPkgId == 6)
-                    {
-                            $pkgName = 'Blue Diamond';
-                    }
-                    else if($userPkgId == 7)
-                    {
-                            $pkgName = 'Black Diamond';
-                    }
-                    
-                    echo $pkgName;
-                    ?>
-               </h4>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="col-md-6">
-      <div class="rightprofile">
-      <?php if(isset($_SESSION['successMsg'])): ?>
-        <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
-            <div class="d-flex align-items-center">
-                <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
-                </div>
-                <div class="ms-3">
-                    <h6 class="mb-0 text-white">Success </h6>
-                    <div class="text-white"><?php echo $_SESSION['successMsg']; ?></div>
-                </div>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="closeAlertByClass('alert-success')"></button>
-        </div>
-        <?php  unset($_SESSION['successMsg']);     endif;  ?>
-        
-        <?php if(isset($_SESSION['errorMsg'])): ?>
-        <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-            <div class="d-flex align-items-center">
-                <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
-                </div>
-                <div class="ms-3">
-                    <h6 class="mb-0 text-white">Error </h6>
-                    <div class="text-white"><?php echo $_SESSION['errorMsg']; ?></div>
-                </div>
-            </div>
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onclick="closeAlertByClass('alert-danger')"></button>
-        </div>
-        <?php  unset($_SESSION['errorMsg']);     endif;  ?>
-
-        <form method="POST">
-         <h2>Edit your<br><span>Profile</span></h2>
-         <!-- <button class="save-btn">Save Changes</button> -->
-         <button type="submit" name="edit_profile" class="save-btn" value="Update">Save Changes</button>
-
-         
-       
-
-         <div class="row input_row">
-            <div class="col-md-6 col-6">
-               <label>Full Name</label>
-               <!-- <input type="text" name="" placeholder="Jayson Smith"> -->
-               <input type="text" name="full_name" class="form-control form-control-sm" placeholder="Enter Full Name" value="<?= $full_name?>" required/>
-            </div>
-            <div class="col-md-6 col-6">
-               <label>Email Address</label>
-               <!-- <input type="text" name="" placeholder="jayson56@gmail.com"> -->
-               <input name="email" type="text" class="form-control form-control-sm" placeholder="Email" value="<?= $email ?>" required />
-
-            </div>
-         </div>
-
-         <div class="row second_row">
-            <div class="col-md-12">
-               <label>Address</label>
-               <!-- <input type="text" name="" placeholder="Street"> -->
-               <input type="text" name="address" class="form-control form-control-sm" placeholder="Street" value="<?= $userStreet?>" />
-
-            </div>
-         </div>
-
-         <div class="row">
-            <div class="col-md-6">
-               <!-- <input type="text" name="" placeholder="City"> -->
-               <input type="text" name="city" class="form-control form-control-sm" placeholder="City" value="<?= $userCity?>" />
-            </div>
-            <div class="col-md-6">
-               <!-- <input type="text" name="" placeholder="State"> -->
-               <input type="text" name="state" class="form-control form-control-sm" placeholder="State" value="<?= $userState?>" />
-            </div>
-         </div>
-
-         <div class="row">
-            <div class="col-md-6">
-               <!-- <input type="number" name="" placeholder="Pincode"> -->
-               <input type="text" name="postal_code" class="form-control form-control-sm" placeholder="Postal Code" value="<?= $userPostalCode ?>" />
-            </div>
-            <div class="col-md-6">
-               <!-- <input type="number" name="" placeholder="Phone"> -->
-               <input type="text" name="phone" class="form-control form-control-sm" placeholder="Phone" value="<?=$userMobile ?>" required />
-            </div>
-         </div>
-
-         <div class="row second_row">
-            <div class="col-md-6">
-               <label>Country</label><br>
-               <input name="country" type="text" class="form-control form-control-sm" placeholder="Country" value="<?= $userCountry ?>" />
-
-               <!-- <select name="country" id="country">
-                <option value="India">India</option>
-                <option value="usa">USA</option>
-                <option value="england">England</option>
-              </select> -->
-
-            </div>
-         </div>
-
-         <div class="row second_row">
-            <div class="col-md-6">
-               <label>Transaction Password</label>
-               <style>
-                .input-group {
-                    max-width: 100%;
-                    width: 80%;
-                }</style>
-                <div class="col-sm-9 input-group align-items-center" id="show_hide_password2">
-                        <input type="password" id="pass1" name="txnpassword" class="form-control form-control-sm" placeholder="Transaction Password"  required />
-                        <a href="javascript:;" class="bg-transparent"><i class='bx bx-hide'></i></a>
-                <!-- <span style="color:red">Password Should Contain: Minimum 8 Characters, 1 Digit,  1 Capital Letter, 1 Small Letter and 1 Symbol.</span> -->
-                </div>
-               <!-- <input type="password" name="" placeholder="********"> -->
-            </div>
-            <div class="col-md-6">
-               <p>Password should contain:</p>
-               <ul>
-                  <li>Minimum 8 characters</li>
-                  <li>1 Digit</li>
-                  <li>1 Capital Letter</li>
-                  <li>1 Small Letter</li>
-                  <li>1 Number</li>
-               </ul>
-            </div>
-         </div>
-
-        </form>
-
-        <!-- Added gfrom previous old code -->
-        <!-- <div class="tab-pane fade p-3" id="dangercontact" role="tabpanel">
-            <form method="POST">
-            <div class="row mb-3">
-                <div class="col-sm-3">
-                        <h6 class="mb-0">Current Password</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <div class="input-group" id="show_hide_password">
-                            <input type="password" name="currentPassword" class="form-control form-control-sm" placeholder="Current Password" value="" /><a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
-                        </div>
-                    </div>
-            </div>
-                <div class="row mb-3">
-                <div class="col-sm-3">
-                        <h6 class="mb-0">New Password</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                        <div class="input-group" id="show_hide_password2">
-                            <input type="password" id="pass1" name="newPassword" class="form-control form-control-sm" placeholder="New Password" value="" /><a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
-                        </div>
-                            <ul class="passValidate mt-2" style="display:none">
-                                <li class=" text-danger text-left charlength" style="font-size: 12px;">Password should be 8 character</li>
-                                <li class="text-danger  text-left specialChar" style="font-size: 12px;">Special character must be include</li>
-                                <li class="text-danger text-left integerMust" style="font-size: 12px;">Integer must be include</li>
-                                <li class="text-danger  text-left captLetter mb-1" style="font-size: 12px;">Capital Letter must be include</li>
-                            </ul>
-                    </div>
-            </div>
-            <div class="row mb-3">
-                <div class="col-sm-3">
-                        <h6 class="mb-0">Confirm Password</h6>
-                    </div>
-                    
-                    <div class="col-sm-9 text-secondary">
-                        <div class="input-group" id="show_hide_password3">
-                            <input type="password" id="pass2" name="confirmPassword" class="form-control form-control-sm" placeholder="New Password" value="" /><a href="javascript:;" class="input-group-text bg-transparent"><i class='bx bx-hide'></i></a>
-                        </div>
-                    </div>
-            </div>
-            
-                <div class="row mt-3">
-                    <div class="col-sm-3"></div>
-                    <div class="col-sm-9">
-                        <div class="d-flex ">
-                            <input type="submit" name="updatePassword" class="btn btn-sm bg-gradient-rose-button text-white" value="Update" />
-                        </div>
-                    </div>
-                </div>	
-            </form>
-        </div> -->
-        <!-- Added gfrom previous old code -->
-
-      </div>
-   </div>
-</div>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <!---------FOOTER START------>
-<?php echo footer_(); ?>
-   <!---------FOOTER END------>
-
-<!--------------------------- SCRIPTS ------------------------------------->
-
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/sweetalert2.min.js"></script>
-
-<script>
-    // Trigger the file input when the combined button is clicked
-    const combinedBtn = document.querySelector('.combined-btn');
-    const fileInput = document.getElementById('inputGroupFile04');
-
-    combinedBtn.addEventListener('click', () => {
-      fileInput.click();
-    });
-</script>
-
+<?php include 'footer.php'; ?>
 
 <script>
 
@@ -1003,21 +973,5 @@ if(isset($_POST['updateUsdtAddress']))
         });
         
     });
-
-
-    function closeAlertByClass(className) {
-        const alertElements = document.getElementsByClassName(className);
-        
-        if (alertElements.length > 0) {
-            alertElements[0].style.display = 'none'; // Remove the 'show' class to hide the alert
-        }
-    }
    
 </script>
-
-<!--Added for alert Include Bootstrap CSS and JavaScript -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
-
-</body>
-</html>
