@@ -5,6 +5,8 @@ $page_title="Dashboard";
 include_once("components/footer.php");
 include_once("components/header_links.php");
 include_once("components/navbar.php");
+include_once("components/sidebar.php");
+
 ?>
 
 <!DOCTYPE html>
@@ -126,9 +128,11 @@ if($sql->rowCount()>0){
 
 
 
+ <!---------SIDEBAR START------>
+ <?php echo sidebar_(); ?>
+   <!-----SIDEBAR END---->
 
-
-<div class="left">
+<!-- <div class="left">
    <img src="assets-new/images/logo/logo.svg" class="logo">
    <ul>
       <li><a><img src="assets-new/images/icons/dashboard.svg" class="icon">Dashboard</a></li>
@@ -145,7 +149,7 @@ if($sql->rowCount()>0){
    
    <button class="logout"><img src="assets-new/images/icons/logout.svg">Logout</button>
 
-</div>
+</div> -->
 <div class="middle">
 
 <!-- Start alert div managing -->
@@ -525,8 +529,8 @@ if($sql->rowCount()>0){
 <script src="assets-new/js/sweetalert2.min.js"></script>
 
 <!--Added for alert Include Bootstrap CSS and JavaScript -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
 
 </body>
 </html>
