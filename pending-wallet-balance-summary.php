@@ -1,42 +1,67 @@
 <?php
-$page_title = 'Cash Wallet';
-include 'header.php'; 
-
-
-
+include_once("components/footer.php");
+include_once("components/header_links.php");
+include_once("components/navbar.php");
+include_once("components/sidebar.php");
 ?>
 
-<!-- Page Content Start Here -->
-<div class="page-wrapper"> 
-    <div class="page-content">
-        <!-- Breadcrumb-->
-        <div class="row pt-2 pb-2">
-            <div class="col-sm-9">
-                <h4 class="page-title"><?= $page_title; ?></h4>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-                    <li>&nbsp; / &nbsp;</li>
-                    <li class="breadcrumb-item active" aria-current="page"><?= $page_title; ?></li>
-                </ol>
-            </div>
-        </div>
-        <!-- End Breadcrumb-->
-        <div class="row">
-            <div class="col-12">
-                <div class="card">
-					<div class="card-body">
-						<div class="table-responsive">
-							 <table id="default-datatable" class="table table-bordered table-striped table-hover">
-                <thead class="">
-                    <tr>
-                        <th>#</th>
-                        <th>Amount</th>
-                        <th>Expires At</th>
-                        <th>Is Expired</th>
-                        
-                    </tr>
-                </thead>
-                <tbody>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+	<title>Gtron MLM | Pending Wallet Balance Summary</title>
+     
+  <?php echo header_links(); ?>
+
+</head>
+<body >
+
+
+ <style>
+  .owl-nav.disabled{
+    display: none !important;
+  }
+</style>   
+
+   <!---------NAVBAR START------>
+<?php echo navbar_(); ?>
+   <!-----NAVBAR END---->
+
+
+
+<section id="outer">
+
+   <!---------SIDEBAR START------>
+<?php echo sidebar_(); ?>
+   <!-----SIDEBAR END---->
+
+<div class="middlee">
+   
+<h2><img src="assets/images/icons/notice.svg">CASH WALLET<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="pending-wallet-balance-summary.php">/ Cash Wallet</a></span></h2>
+
+<button class="profile-btn"><img src="assets/images/icons/profile.png">Jayson Smith</button>
+
+
+<div class="row pendingrow">
+   <div class="col-md-9 pending">
+     
+<div class="table-responsive">      
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Expires at</th>
+      <th scope="col">Is Expired</th>
+    </tr>
+  </thead>
+  <tbody>
 <?php
 
 $user_name = $_SESSION['user_name'];
@@ -91,26 +116,45 @@ if($result->num_rows < 1){
 
 ?>
               </tbody>
-                <tfoot>
-                    <tr>
-                        <th>#</th>
-                        <th>Amount</th>
-                        <th>Expires At</th>
-                        <th>Is Expired</th>
-                        
-                    </tr>
-                </tfoot>
-            </table>
-						</div>
-					</div>
-				</div>
-                
-                
-            </div>
-        </div>
-    </div>
-    <!-- End container-fluid-->
-    
-    </div><!--End content-wrapper-->
-    
-    <?php include 'footer.php'; ?>
+  <tfoot>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Amount</th>
+      <th scope="col">Expires at</th>
+      <th scope="col">Is Expired</th>
+    </tr>
+  </tfoot>
+</table>
+</div>
+
+   </div>
+</div>
+
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+   <!---------FOOTER START------>
+<?php echo footer_(); ?>
+   <!---------FOOTER END------>
+
+<!--------------------------- SCRIPTS ------------------------------------->
+
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/sweetalert2.min.js"></script>
+
+
+</body>
+</html>

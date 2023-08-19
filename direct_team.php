@@ -1,24 +1,62 @@
-<?php 
-$page_title = 'Direct Team';
+<?php
+include_once("components/footer.php");
+include_once("components/header_links.php");
+include_once("components/navbar.php");
+include_once("components/sidebar.php");
+?>
 
-include 'header.php'; ?>
-  
-<!-- Page Content Start Here -->
-  <div class="page-wrapper">
-    <div class="page-content">
-    <!-- Breadcrumb-->
-     <div class="row pt-2 pb-2">
-        <div class="col-sm-9">
-        <h4 class="page-title"><?= $page_title; ?></h4>
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-            <li> &nbsp; / &nbsp;</li>
-            <li class="breadcrumb-item active" aria-current="page"><?= $page_title; ?></li>
-         </ol>
-     </div>
-     </div>
-    <!-- End Breadcrumb-->
-    <div class="row">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+  <meta charset="utf-8">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+
+	<title>Gtron MLM | Direct Team</title>
+     
+  <?php echo header_links(); ?>
+
+</head>
+<body >
+
+
+ <style>
+  .owl-nav.disabled{
+    display: none !important;
+  }
+</style>   
+
+   <!---------NAVBAR START------>
+<?php echo navbar_(); ?>
+   <!-----NAVBAR END---->
+
+
+
+<section id="outer">
+
+   <!---------SIDEBAR START------>
+<?php echo sidebar_(); ?>
+   <!-----SIDEBAR END---->
+
+<div class="middlee">
+   
+<h2><img src="assets/images/icons/team.svg">DIRECT TEAM<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="direct-team.php">/ Direct Team</a></span></h2>
+
+<!-- <button class="profile-btn"><img src="assets/images/icons/profile.png">Jayson Smith</button> -->
+<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
+    echo "assets/images/icons/profile.png";
+}?>"><?php if($full_name != '') { echo $full_name; } else {
+    echo $user_name;
+}?></button>
+
+
+<div class="row profilerow">
+   <div class="col-md-11">
+
+      <div class="row">
       <?php
 
 
@@ -34,22 +72,26 @@ while( $data = $result->fetch_assoc()){
 
 
 ?>
-    
-<div class="col-lg-4 col-md-6 col-sm-12">
-          <div style="border-bottom: 3px solid #0f4e91" class="card card-danger mt-3">
-            <div style="margin-top: -25px;" class="d-felx text-center justify-content-center align-items-center">
-                   <img  src="assets/images/user-profile/<?php echo $data['profile_pic']?>" class="rounded-circle p-1 border bg-primary" width="100" height="100" alt="Profile Pic">
-           </div>
-          <div class="card-body">
-            <h5 style="color:#ffe088" class="card-title text-center"><?php echo ucwords( $data['full_name']); ?></h5>
-            <div class="p-2" style="border-radius: 8px;border: solid 1px rgba(221, 228, 235, 0.1); ">
-                <p class="card-text"><b>Username: </b><span class="text-uppercase"><?php echo  $data['user_name'];?></span></p>
-                <p class="card-text"><b>Email: </b> <?php echo  $data['email']; ?></p>
-                <p class="card-text"><b>Total Invest: </b><?php echo  '$'.$data['total_invest']; ?></p>
-                <p class="card-text"><b>Team Sales: </b><?php echo  '$'.$data['team_sales']; ?></p>
-                
+         <div class="col-md-3 col-6">
+            <div class="profile_div">
+               <div class="row">
+                  <div class="col-md-12 text-center">
+                     <img src="assets/images/user-profile/<?php echo $data['profile_pic']?>" class="profile-img">
+                  </div>
+                  <h5 style="color:#6D1ED1" class="card-title text-center mt-2"><?php echo ucwords( $data['full_name']); ?></h5>
+               </div>
+               <p>Username</p>
+               <h4><?php echo  $data['user_name'];?></h4>
 
-                <?php
+               <p>Email</p>
+               <h4><?php echo  $data['email']; ?></h4>
+
+               <p>Total Invested</p>
+               <h4><?php echo  '$'.$data['total_invest']; ?></h4>
+
+               <p>Team Sales</p>
+               <h4><?php echo  '$'.$data['team_sales']; ?></h4>
+               <?php
            require 'connect.php';
            $sql= $conn->prepare("SELECT * FROM user_registration WHERE sponsor_name='".$data['user_name']."'");
            $sql->execute();
@@ -62,15 +104,10 @@ while( $data = $result->fetch_assoc()){
 }
 ?>
 
-                
-
-
             </div>
-          </div>
-        </div>
- </div>
- 
-<?php 
+         </div>
+
+         <?php 
   }
     $stmt->close();
 
@@ -83,13 +120,168 @@ while( $data = $result->fetch_assoc()){
 
  ?>
 
+         <!-- <div class="col-md-3 col-6">
+            <div class="profile_div">
+               <div class="row">
+                  <div class="col-md-12 text-center">
+                     <img src="assets/images/profile-2.png" class="profile-img">
+                  </div>
+               </div>
+               <p>Username</p>
+               <h4>MLM45</h4>
 
-    </div>
-    </div>
-    <!-- End container-fluid-->
-    
-   </div><!--End content-wrapper-->
-   
-<?php include 'footer.php'; ?>
+               <p>Email</p>
+               <h4>ronda56@gmail.com</h4>
+
+               <p>Total Invested</p>
+               <h4>$400</h4>
+
+               <p>Team Sales</p>
+               <h4>$3,000</h4>
+
+            </div>
+         </div>
+
+         <div class="col-md-3 col-6">
+            <div class="profile_div">
+               <div class="row">
+                  <div class="col-md-12 text-center">
+                     <img src="assets/images/profile-3.png" class="profile-img">
+                  </div>
+               </div>
+               <p>Username</p>
+               <h4>MLM45</h4>
+
+               <p>Email</p>
+               <h4>ronda56@gmail.com</h4>
+
+               <p>Total Invested</p>
+               <h4>$400</h4>
+
+               <p>Team Sales</p>
+               <h4>$3,000</h4>
+
+            </div>
+         </div>
+
+         <div class="col-md-3 col-6">
+            <div class="profile_div">
+               <div class="row">
+                  <div class="col-md-12 text-center">
+                     <img src="assets/images/profile-4.png" class="profile-img">
+                  </div>
+               </div>
+               <p>Username</p>
+               <h4>MLM45</h4>
+
+               <p>Email</p>
+               <h4>ronda56@gmail.com</h4>
+
+               <p>Total Invested</p>
+               <h4>$400</h4>
+
+               <p>Team Sales</p>
+               <h4>$3,000</h4>
+
+            </div>
+         </div>
+
+         <div class="col-md-3 col-6">
+            <div class="profile_div">
+               <div class="row">
+                  <div class="col-md-12 text-center">
+                     <img src="assets/images/profile-5.png" class="profile-img">
+                  </div>
+               </div>
+               <p>Username</p>
+               <h4>MLM45</h4>
+
+               <p>Email</p>
+               <h4>ronda56@gmail.com</h4>
+
+               <p>Total Invested</p>
+               <h4>$400</h4>
+
+               <p>Team Sales</p>
+               <h4>$3,000</h4>
+
+            </div>
+         </div>
+
+         <div class="col-md-3 col-6">
+            <div class="profile_div">
+               <div class="row">
+                  <div class="col-md-12 text-center">
+                     <img src="assets/images/profile-6.png" class="profile-img">
+                  </div>
+               </div>
+               <p>Username</p>
+               <h4>MLM45</h4>
+
+               <p>Email</p>
+               <h4>ronda56@gmail.com</h4>
+
+               <p>Total Invested</p>
+               <h4>$400</h4>
+
+               <p>Team Sales</p>
+               <h4>$3,000</h4>
+
+            </div>
+         </div>
+
+          <div class="col-md-3 col-6">
+            <div class="profile_div">
+               <div class="row">
+                  <div class="col-md-12 text-center">
+                     <img src="assets/images/profile-7.png" class="profile-img">
+                  </div>
+               </div>
+               <p>Username</p>
+               <h4>MLM45</h4>
+
+               <p>Email</p>
+               <h4>ronda56@gmail.com</h4>
+
+               <p>Total Invested</p>
+               <h4>$400</h4>
+
+               <p>Team Sales</p>
+               <h4>$3,000</h4>
+
+            </div>
+         </div> -->
+
+      </div>
+
+   </div>
+</div>
 
 
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+   <!---------FOOTER START------>
+<?php echo footer_(); ?>
+   <!---------FOOTER END------>
+
+<!--------------------------- SCRIPTS ------------------------------------->
+
+<script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/js/owl.carousel.min.js"></script>
+<script src="assets/js/sweetalert2.min.js"></script>
+
+
+</body>
+</html>

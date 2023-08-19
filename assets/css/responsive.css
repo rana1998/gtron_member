@@ -873,6 +873,23 @@ margin-top: 1rem;
 }
 
 
+.rightwithdrawal select{
+    height: 1.8rem;
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+}
+
+.rightwithdrawal textarea{
+    padding-left: 1rem;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+}
+
+
+
+
 .rightwithdrawal .send-btn{
     border-radius: 0.4rem;
     font-size: 0.6rem;
@@ -950,6 +967,32 @@ margin-top: 1rem;
     font-size: 0.7rem;
     margin-bottom: 0rem;
 }
+
+
+/*---------PENDING WALLET PAGE---------------*/
+
+.pendingrow{
+    margin-top: 2rem;
+}
+
+.pending{
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.pending .table thead th {
+    font-size: 0.7rem;
+}
+
+.pending .table tbody td p{
+    font-size: 0.7rem;
+    margin-bottom: 0rem;
+}
+
+
+
+
+
 
 
 

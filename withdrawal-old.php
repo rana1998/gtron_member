@@ -1,15 +1,8 @@
 <?php
-include_once("components/footer.php");
-include_once("components/header_links.php");
-include_once("components/navbar.php");
-include_once("components/sidebar.php");
-
 $page_title = 'Withdrawal Request';
-// include 'header.php'; 
-
-// Suppress warnings for this block of code
-error_reporting(E_ALL & ~E_WARNING);
+include 'header.php'; 
     
+
 //Sb(QUZi5@t}
 //mailcheck@eighty5technologies.com
 //
@@ -33,7 +26,6 @@ $sel = "select * from withdrawal_limit where id = '1'";
 $res = mysqli_query($con,$sel);
 $rr = mysqli_fetch_assoc($res);
 $withDrawalLimit = $rr['amount'];
-
 
 
 $sql = "SELECT * FROM user_registration WHERE user_name = ?"; // SQL with parameters
@@ -211,212 +203,133 @@ if (empty($otpCode)) {
   }
 }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-  <meta charset="utf-8">
-
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
-	<title>Gtron MLM | Withdrawal</title>
-     
-  <?php echo header_links(); ?>
-
-</head>
-<body >
-
-
- <style>
-  .owl-nav.disabled{
-    display: none !important;
-  }
-</style>   
-
-   <!---------NAVBAR START------>
-<?php echo navbar_(); ?>
-   <!-----NAVBAR END---->
-
-
-
-<section id="outer">
-
-   <!---------SIDEBAR START------>
-<?php echo sidebar_(); ?>
-   <!-----SIDEBAR END---->
-
-<div class="middlee">
-   
-<h2><img src="assets/images/icons/with.svg">WITHDRAWAL<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="withdrawal.php">/ Withdrawal</a></span></h2>
-
-<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
-    echo "assets/images/icons/profile.png";
-}?>"><?php if($full_name != '') { echo $full_name; } else {
-    echo $user_name;
-}?></button>
-
-<div class="row withdrawalrow">
-   <div class="col-md-4">
-      <div class="leftwithdrawal">
-         
-         <h2>To Request your Withdrawal,<span> Please fill the following form.</span></h2>
-
-         <?php if(isset($_SESSION['successMsg'])): ?>
-            <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
-                <div class="d-flex align-items-center">
-                    <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0 text-white">Success </h6>
-                        <div class="text-white"><?php echo $_SESSION['successMsg']; ?></div>
-                    </div>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <?php  unset($_SESSION['successMsg']);     endif;  ?>
-            
-            <?php if(isset($_SESSION['errorMsg'])): ?>
-            <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-                <div class="d-flex align-items-center">
-                    <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0 text-white">Error </h6>
-                        <div class="text-white"><?php echo $_SESSION['errorMsg']; ?></div>
-                    </div>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <?php  unset($_SESSION['errorMsg']);     endif;  ?>  
-
+<!-- Page Content Start Here -->
+<div class="page-wrapper">
+    <div class="page-content">
+    <!-- Breadcrumb-->
+    <div class="row pt-2 pb-2">
+      <div class="col-sm-9">
+        <h4 class="page-title"><?= $page_title; ?></h4>
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+          <li>&nbsp; / &nbsp;</li>
+          <li class="breadcrumb-item active" aria-current="page"><?= $page_title; ?></li>
+        </ol>
       </div>
-   </div>
-   <div class="col-md-6">
+    </div>
+    <!-- End Breadcrumb-->
+    <div class="row">
+      <div class="col-lg-6 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">To Request Your Withdrawal, Please fill the following form.</div>
+             <?php if(isset($_SESSION['successMsg'])): ?>
+                                    <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 text-white">Success </h6>
+                                                <div class="text-white"><?php echo $_SESSION['successMsg']; ?></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php  unset($_SESSION['successMsg']);     endif;  ?>
+                                    
+                                    <?php if(isset($_SESSION['errorMsg'])): ?>
+                                    <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 text-white">Error </h6>
+                                                <div class="text-white"><?php echo $_SESSION['errorMsg']; ?></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php  unset($_SESSION['errorMsg']);     endif;  ?>           
+            <hr>
+            <form method = "POST">
+              <div class="form-group">
+                <label for="avail_balance">Available Balance</label>
+                <input type="text" class="form-control " id="avail_balance_withdrawal" name="avail_balance" value="<?= $current_balance ?>"  readonly = "">
+              </div>
 
-   <form method = "POST">
+              <div class="form-group mt-3">
+                <label for="desired_amount">Desired Amount</label> <b id="taxAmountError" class="text-danger"></b>
+                <input type="text" class="form-control " id="desireAmountWithdrawal" name="desired_amount" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"   autocomplete="off" placeholder="e.g. <?php echo $withDrawalLimit;?>" >
+              </div>
 
-      <div class="rightwithdrawal">
-    
-       <div class="avail_div">
-         <div class="row">
-          <div class="col-md-4">
-             <p>Available Balance</p>
-             <!-- <h4>$23,950.00</h4> -->
-             <input type="text" class="" id="avail_balance_withdrawal" name="avail_balance" value="<?= $current_balance ?>"  readonly = "">
+              <div class="form-group mt-3">
+                <label for="txtValue">Receive Amount </label> <b class="text-danger">(<?=$withdrawalPercentage1?>% Withdrawal Fee.) <span id="usdAmountHERE"></span></b>
+                <input type="text" class="form-control " id="txtValueWithdrawal" name="amount_after_tax" value="$0" readonly="" >
+                
+              </div>
+              
+              <?php
+              if(empty($userUsdtTrcAdress))
+              {
+              ?>
+              <br>
+              <b>Your address is not set </b><a href="profile.php"><span class="badge bg-success">Click here</span></a> <b> to set address</b>
+              <br>
+                
+              <?php
+              }
+              else
+              {
+              ?>
+                <div class="form-group mt-3">
+                    <label>Your USDT (TRC20) Address</label>
+                    <br>
+                    <b class="text-primary"><?=$userUsdtTrcAdress?></b>
+                </div>
+                
+              <?php
+              }
+              ?>
+               <label for="exampleInputEmail1" class="form-label mt-3">Request for 2FA Code:</label>
+               <b class="badge bg-success text-white emailMessageAjax"></b>
+             <div class="input-group "> 
+                  <input type="text" name="otpCode" class="form-control" value="<?php echo $email; ?>" placeholder="Enter 2FA Code Sent on Email" readonly>
+                  <button class="btn btn-secondary sendOtpEmail" type="button" >Send Code</button>
+                  
+              </div>
 
-          </div>
-           <div class="col-md-8 second">
-              <p>Your USDT (TRC20) Address</p>
-              <h6><?= $userUsdtTrcAdress ;?></h6>
-           </div>
-           </div>
-       </div>
-
-       <label>Desired Amount</label>
-       <!-- <input type="text" name="" placeholder="e.g."> -->
-       <input type="text" class="form-control " id="desireAmountWithdrawal" name="desired_amount" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"   autocomplete="off" placeholder="e.g. <?php echo $withDrawalLimit;?>" >
-
-
-       <label>Amount the you will Receive <span>( <?=$withdrawalPercentage1?>% Withdrawal Fee.)</span><span id="usdAmountHERE"></span></label>
-       <!-- <input type="text" name="" placeholder="Street"> -->
-       <input type="text" class="form-control " id="txtValueWithdrawal" name="amount_after_tax" value="$0" readonly="" >
-
-       <?php
-            if(empty($userUsdtTrcAdress))
-            {
-            ?>
-            <br>
-            <b>Your address is not set </b><a href="profile.php"><span class="badge bg-success">Click here</span></a> <b> to set address</b>
-            <br>
-            
-            <?php
-            }
-            else
-            {
-            ?>
-            <div class="form-group mt-3">
-                <label>Your USDT (TRC20) Address</label>
-                <br>
-                <b class="text-primary"><?=$userUsdtTrcAdress?></b>
-            </div>
-            
-            <?php
-            }
-        ?>
-
-
-        <label>Request for 2FA Code</label>
-        <div class="row">
-           <div class="col-md-8">
-            <!-- <input type="text" name="" placeholder="Enter 2FA Code Sent on Email">   -->
-            <input type="text" name="otpCode" class="" value="<?php echo $email; ?>" placeholder="Enter 2FA Code Sent on Email" readonly>
-
-           </div>
-           <div class="col-md-4">
-                <button class="btn btn-secondary sendOtpEmail send-btn" type="button" >Send Code</button>
-              <!-- <button class="send-btn">Send Code</button> -->
-           </div>  
-        </div>
-
-        <?php if($email !== ""){ ?>
+              
+              <div class="form-group mt-3">
+              <?php if($email !== ""){ ?>
                 <label for="txtValue">Enter 2FA Code Sent on Email:</label>
                 <input type="text" class="form-control " placeholder="Enter 2FA Code Sent on Email" name="2facode" value="">
                 <?php }else{ ?><b>Don't have Email Set? </b><a href="profile.php"><span class="badge bg-success">Click here</span></a> <b> to set.</b>
-         <?php } ?>
+              </div> <?php } ?>
 
-         <!-- <label>Enter 2FA Cide sent on Email</label>
-       <input type="text" name="" placeholder="Enter 2FA Code Sent on Email"> -->
-
-       <!-- <label>Enter Transaction Password</label>
-       <input type="text" name="" placeholder="Enter Transaction Password"> -->
-       <label for="txtValue">Enter Transaction Password: </label>
-        <input type="password" class="" placeholder="Enter Transaction Password" name="transactionpassword" value="">
-
-       <p class="dont_p">
-          Dont have Transaction password set?  <a>Click Here</a> to set.
-       </p>
-
-       <!-- <button class="submit-btn">Submit Now</button> -->
-       <input class="submit-btn" name="withdrawal_request" type="submit" value="Submit Now">
-
-
-
+              <div class="form-group mt-3">
+                <label for="txtValue">Enter Transaction Password: </label>
+                <input type="password" class="form-control " placeholder="Enter Transaction Password" name="transactionpassword" value="">
+                <b>Don't have transaction Password Set? </b><a href="profile.php"><span class="badge bg-success">Click here</span></a> <b> to set.</b>
+              </div>
+              
+              <div class="input-group-sm mt-3">
+                 <input class="btn bg-gradient-rose-button text-white buttonProcessing" name="withdrawal_request" type="submit" value="Submit Now">
+                 <!--<button></button>-->
+            </div>
+            </form>
+          </div>
+        </div>
       </div>
-      </form>
-
-   </div>
-</div>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-<?php //include 'footer.php'; ?>
-
-
-   <!---------FOOTER START------>
-<?php echo footer_(); ?>
-   <!---------FOOTER END------>
-
-<!--------------------------- SCRIPTS ------------------------------------->
-
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/sweetalert2.min.js"></script>
-
-<script>
-
+    </div>
     
+  </div>
+  <!-- End container-fluid-->
+  
+  </div><!--End content-wrapper-->
+  
+  <?php include 'footer.php'; ?>
+  
+  <script>
       
     $('#desireAmountWithdrawal').on('keyup', function() {
     //   var desireValue = parseFloat($('#desireAmountWithdrawal').val());
@@ -452,7 +365,7 @@ if (empty($otpCode)) {
       
       var desireValue = parseFloat($('#desireAmountWithdrawal').val());
       var avail_balance = parseFloat($('#avail_balance_withdrawal').val());
-        var per = '<?php echo $withdrawalTax1 ?>';
+        var per = '<?php echo $withdrawalTax ?>';
         console.log(per)
         finalAmount = '$'+ (desireValue - desireValue*parseFloat(per));
         amountHere = '($' + (desireValue*parseFloat(per)) + ')';
@@ -463,25 +376,4 @@ if (empty($otpCode)) {
         $('#txtValueWithdrawal').val(finalAmount);
       
     });
-
-
-
-    //otp email 2nd
-    $(".sendOtpEmail").click(function(){
-        var sendMail = 'Email Send';
-        $(".sendOtpEmail").prop('disabled', true);
-        $(".sendOtpEmail").text('Processing');
-        $.post("ajax/otp_generator.php",{otp_send:sendMail},function(feedback){
-            // alert(feedback);
-            $('.emailMessageAjax').text(feedback);
-            $(".sendOtpEmail").prop('disabled', false);
-            $(".sendOtpEmail").text('SEND CODE');
-        })
-    
-    //  alert("button work");
-    })
   </script>
-
-
-</body>
-</html>

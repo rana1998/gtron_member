@@ -96,6 +96,10 @@ a{
 	background-color: #6d1ed1;
 }
 
+.left ul li:hover a{
+	background-color: transparent !important;
+}
+
 .left ul li .icon{
 	width: 0.9vw;
 	margin-right: 0.6vw;
@@ -1177,6 +1181,27 @@ padding: 1vw;
 }
 
 
+.rightwithdrawal select{
+	width: 100%;
+	border: none;
+	height: 1.8vw;
+	padding-left: 1vw;
+	font-size: 0.8vw;
+	border-radius: 0.3vw;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.rightwithdrawal textarea{
+	width: 100%;
+	border: none;
+	padding-left: 1vw;
+	padding-top: 1vw;
+	font-size: 0.8vw;
+	border-radius: 0.3vw;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+
 .rightwithdrawal .send-btn{
 	background-color: #6D1ED1;
     border-radius: 0.4vw;
@@ -1286,4 +1311,29 @@ padding: 1vw;
 
 .package .table td {
     border-top: 1px solid transparent;
+}
+
+
+
+/*---------PENDING WALLET PAGE---------------*/
+
+.pendingrow{
+	margin-top: 2vw;
+}
+
+.pending{
+	background-color: #ffffff;
+	padding: 1vw;
+	border-radius: 0.5vw;
+	box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+}
+
+.pending .table thead th {
+    background-color: #eff3f7;
+    font-size: 0.7vw;
+}
+
+.pending .table tbody td p{
+	font-size: 0.7vw;
+	margin-bottom: 0vw;
 }

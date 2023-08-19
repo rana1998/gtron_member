@@ -4,6 +4,9 @@ include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
 
+// Suppress warnings for this block of code
+error_reporting(E_ALL & ~E_WARNING);
+
 $page_title = 'Internal Wallet Transfer';
 
 
@@ -237,7 +240,11 @@ if (isset($_POST['withdrawal_request']) && $_POST) {
    
 <h2><img src="assets/images/icons/with.svg">INTERNAL WALLET TRANSFER<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="internal-wallet-transfer.php">/ Internal Wallet Transfer</a></span></h2>
 
-<button class="profile-btn"><img src="assets/images/icons/profile.png">Jayson Smith</button>
+<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
+    echo "assets/images/icons/profile.png";
+}?>"><?php if($full_name != '') { echo $full_name; } else {
+    echo $user_name;
+}?></button>
 
 
 <div class="row withdrawalrow">
@@ -249,42 +256,80 @@ if (isset($_POST['withdrawal_request']) && $_POST) {
       </div>
    </div>
    <div class="col-md-6">
+   <?php if(isset($_SESSION['successMsg'])): ?>
+            <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
+                  <div class="d-flex align-items-center">
+                     <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                     </div>
+                     <div class="ms-3">
+                        <h6 class="mb-0 text-white">Success </h6>
+                        <div class="text-white"><?php echo $_SESSION['successMsg']; ?></div>
+                     </div>
+                  </div>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php  unset($_SESSION['successMsg']);     endif;  ?>
+            
+            <?php if(isset($_SESSION['errorMsg'])): ?>
+            <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+                  <div class="d-flex align-items-center">
+                     <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                     </div>
+                     <div class="ms-3">
+                        <h6 class="mb-0 text-white">Error </h6>
+                        <div class="text-white"><?php echo $_SESSION['errorMsg']; ?></div>
+                     </div>
+                  </div>
+                  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            <?php  unset($_SESSION['errorMsg']);     endif;  ?>           
+            <!-- <hr> -->
+         <form method = "POST">
       <div class="rightwithdrawal">
-         
        <div class="avail_div">
          <div class="row">
           <div class="col-md-4">
              <p>Available Balance</p>
-             <h4>$23,950.00</h4>
+             <!-- <h4>$23,950.00</h4> -->
+             <input type="text" class="" id="avail_balance" name="avail_balance" value="<?= $current_balance ?>"  readonly = "">
+
           </div>
            <div class="col-md-8 second">
               <p>Your USDT (TRC20) Address</p>
-              <h6>0xAB99a674486F9A2856958214B413a33b91F1a4Df</h6>
+              <h6><?= $userUsdtTrcAdress ;?></h6>
            </div>
            </div>
        </div>
 
        <label>Amount to be Transfered</label>
-       <input type="text" name="" placeholder="e.g.">
+       <!-- <input type="text" name="" placeholder="e.g."> -->
+       <input type="number" class="form-control " id="desireAmountWithdrawal" name="desired_amount" value="" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*?)\..*/g, '$1');"   autocomplete="off" placeholder="e.g. <?php echo $withDrawalLimit;?>" >
+
 
        <label>Amount the you will Receive <span>( 10% Withdrawal Fee.)</span></label>
-       <input type="text" name="" placeholder="$0">
+       <!-- <input type="text" name="" placeholder="$0"> -->
+         <input type="text" class="form-control " id="txtValueWithdrawal" name="amount_after_tax" value="$0" readonly="" >
+         <input type="hidden" class="form-control " id="txtValueWithdrawalHidden" name="amount_after_tax_hidden" value="0" readonly="" >
 
         <label>Search user by Username</label>
         <div class="row">
            <div class="col-md-8">
-            <input type="text" name="" placeholder="Enter Username or Email">  
+            <!-- <input type="text" name="" placeholder="Enter Username or Email">   -->
+            <input type="text" placeholder="Enter user name or Email" class="form-control " id="username_serach" name="username" value="">
+
            </div>
            <div class="col-md-4">
-              <button class="send-btn">Search</button>
+              <button class="send-btn checkUserName">Search</button>
            </div>  
         </div>
 
 
-       <button class="submit-btn">Submit</button>
-
+       <!-- <button class="submit-btn buttonProcessing" id="transfer_request" onclick="transfer_request();">Submit</button> -->
+       <!-- <a class="btn bg-gradient-rose-button text-white buttonProcessing" id="transfer_request" onclick="transfer_request();">Submit</a> -->
+       <a class="btn bg-gradient-rose-button submit-btn buttonProcessing" id="transfer_request" style="display: flex;align-items: center;justify-content: center;width: 20%;" onclick="transfer_request();">Submit</a>
 
       </div>
+            </form>
    </div>
 </div>
 
@@ -321,6 +366,228 @@ if (isset($_POST['withdrawal_request']) && $_POST) {
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/sweetalert2.min.js"></script>
+
+<?php //include 'footer.php'; ?>
+
+
+<script>
+   //   $(document).ready(function() {
+   //  $('.js-example-basic-single').select2();
+   //    });
+   </script>
+   
+   <script>
+     
+     function SelectedUser() {
+  var x = document.getElementById("selectedUser").value;
+  document.getElementById("demo").innerHTML = "Username: " + x;
+}
+
+
+      function transfer_request(){
+         var avail_balance = $('#avail_balance').val();
+         var desired_amount_transfer = $('#desireAmountWithdrawal').val();
+         var selectedUser = $('#username_serach').val();
+         var amount_after_tax = $('#txtValueWithdrawalHidden').val();
+
+         // alert(avail_balance);
+
+         if (desired_amount_transfer=='') {
+            // alert("Please enter the amount to be transfered");
+            Toastify({
+  text: "Please enter the amount to be transfered",
+  duration: 3000,
+  newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "center", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #FF0000, #CB4335)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+        }
+        else if(selectedUser==''){
+          // alert("Please select an user");
+          Toastify({
+  text: "Please Enter User Name",
+  duration: 3000,
+  newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "center", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #FF0000, #CB4335)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+        }
+        else{
+
+
+
+          $.ajax
+
+    ({
+
+   type: "POST",
+
+   url: "internal-wallet-transfer-GET.php",
+
+   data : {
+  avail_balance:avail_balance,
+  desired_amount_transfer:desired_amount_transfer,
+  amount_after_tax:amount_after_tax,
+  selectedUser:selectedUser,
+  },
+
+success: function (data) {
+
+
+              if(data==1){
+
+             // alert("Balance Transfered Successfully!");
+            Toastify({
+  text: "Balance Transfered Successfully!",
+  duration: 3000,
+  newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "center", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #00b09b, #96c93d)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+setTimeout(function(){
+   window.location.reload();
+}, 2000);
+
+
+              }
+              else if(data==2){
+                // alert("Transfer money is more than your available balance");
+                Toastify({
+  text: "Transfer money is more than your available balance!",
+  duration: 3000,
+  newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "center", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #FF0000, #CB4335)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+
+              } else if(data==5){
+                // alert("Transfer money is more than your available balance");
+                Toastify({
+  text: "User with this Email or User name not found! Please Enter Correct details and click on Search User.",
+  duration: 3000,
+  newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "center", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #FF0000, #CB4335)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+
+              }
+
+              else{
+
+            // alert("Error sending money");
+              Toastify({
+  text: "Error sending money!",
+  duration: 3000,
+  newWindow: true,
+  close: true,
+  gravity: "top", // `top` or `bottom`
+  position: "center", // `left`, `center` or `right`
+  stopOnFocus: true, // Prevents dismissing of toast on hover
+  style: {
+    background: "linear-gradient(to right, #FF0000, #CB4335)",
+  },
+  onClick: function(){} // Callback after click
+}).showToast();
+
+              }
+
+         
+
+      }
+
+   });
+
+    
+          
+        }
+
+
+      }
+
+   </script>
+
+
+   
+  <script>
+      
+    $('#desireAmountWithdrawal').on('keyup', function() {
+    //   var desireValue = parseFloat($('#desireAmountWithdrawal').val());
+    //   var avail_balance = parseFloat($('#avail_balance_withdrawal').val());
+     
+    //     if(desireValue == '')
+    //     {
+    //          finalAmount= '$0';
+    //          $('#taxPercentage').html('');
+    //          $('#taxAmountError').html('Minimum 20$');
+    //     }
+    //     else if(desireValue < 20)
+    //     {
+    //          finalAmount= '$0';
+    //          $('#taxPercentage').html('');
+    //          $('#taxAmountError').html('Minimum 20$');
+    //     }
+    //     else if(desireValue <= 50)
+    //     {
+    //          finalAmount = '$'+ (desireValue - 2);
+    //          $('#taxPercentage').html('$2');
+    //          $('#taxAmountError').html('');
+    //     }
+    //     else if(desireValue > 50)
+    //     {
+    //         finalAmount = '$'+ (desireValue - desireValue*0.03);
+    //         $('#taxPercentage').html("");
+    //         $('#taxAmountError').html('');
+    //     }
+
+    //   // withdrawal_amount =Math.round(withdrawal_amount);
+    //   $('#txtValueWithdrawal').val(finalAmount);
+      
+      var desireValue = parseFloat($('#desireAmountWithdrawal').val());
+      var avail_balance = parseFloat($('#avail_balance').val());
+        var per = '<?php echo $withdrawalTax ?>';
+        console.log(per)
+        finalAmountHidden = (desireValue - desireValue*parseFloat(per));
+        finalAmount = '$'+ (desireValue - desireValue*parseFloat(per));
+        amountHere = '($' + (desireValue*parseFloat(per)) + ')';
+        
+        document.getElementById('usdAmountHERE').innerHTML = amountHere;
+
+        // withdrawal_amount =Math.round(withdrawal_amount);
+        $('#txtValueWithdrawalHidden').val(finalAmountHidden);
+        $('#txtValueWithdrawal').val(finalAmount);
+      
+    });
+  </script>
 
 
 </body>
