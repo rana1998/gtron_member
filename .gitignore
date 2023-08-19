@@ -1,0 +1,20 @@
+# Ignore compiled output and temporary files
+*.o
+*.pyc
+__pycache__/
+
+# Ignore logs and data files
+logs/
+data/
+
+# Ignore environment-specific settings
+.env
+.env.*
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+
+
+# Ignore the vendor directory
+vendor/
