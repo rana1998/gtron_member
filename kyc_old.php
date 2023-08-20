@@ -1,9 +1,6 @@
 <?php
-include_once("components/header_links.php");
-include_once("components/navbar.php");
-include_once("components/sidebar.php");
-include_once("components/footer.php");
-
+$page_title = 'KYC';
+include 'header.php'; 
 // if($userKyc == 'Verified')
 // {
 //     $_SESSION['successMsg'] = "Kyc already verified.";
@@ -264,209 +261,118 @@ if ($stmt->execute() === TRUE) {
 
 } // end of isset
 
-?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    
-  <meta charset="utf-8">
-
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-
-	<title>Gtron MLM | KYC</title>
-     
-  <?php echo header_links(); ?>
-
-</head>
-<body >
-
-
- <style>
-  .owl-nav.disabled{
-    display: none !important;
-  }
-</style>   
-
-   <!---------NAVBAR START------>
-<?php echo navbar_(); ?>
-   <!-----NAVBAR END---->
-
-
-
-<section id="outer">
-
-   <!---------SIDEBAR START------>
-<?php echo sidebar_($userStatus); ?>
-   <!-----SIDEBAR END---->
-
-<div class="middlee">
-   
-<h2><img src="assets/images/icons/with.svg">KYC<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="kyc.php">/ KYC</a></span></h2>
-
-<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
-    echo "assets/images/icons/profile.png";
-}?>"><?php if($full_name != '') { echo $full_name; } else {
-    echo $user_name;
-}?></button>
-
-
-<div class="row withdrawalrow">
-   <div class="col-md-4">
-      <div class="leftwithdrawal">
-         
-         <h2>Please complete your <span>KYC.</span></h2>
-
-         <?php if(isset($_SESSION['successMsg'])): ?>
-            <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
-                <div class="d-flex align-items-center">
-                    <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+ ?>
+<!-- Page Content Start Here -->
+<div class="page-wrapper">
+  <div class="page-content">
+    <!-- Breadcrumb-->
+    <!--<div class="row pt-2 pb-2">-->
+    <!--  <div class="col-sm-9">-->
+    <!--    <h4 class="page-title"><?= $page_title; ?></h4>-->
+    <!--    <ol class="breadcrumb">-->
+    <!--      <li class="breadcrumb-item"><a href="index.php">Home</a></li>-->
+    <!--      <li class="breadcrumb-item active" aria-current="page"><?= $page_title; ?></li>-->
+    <!--    </ol>-->
+    <!--  </div>-->
+    <!--</div>-->
+    <!-- End Breadcrumb-->
+    <div class="row">
+      <div class="col-lg-10 mx-auto">
+        <div class="card">
+          <div class="card-body">
+            <div class="card-title">Upload Document</div>
+             <?php if(isset($_SESSION['successMsg'])): ?>
+                                    <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 text-white">Success </h6>
+                                                <div class="text-white"><?php echo $_SESSION['successMsg']; ?></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php  unset($_SESSION['successMsg']);     endif;  ?>
+                                    
+                                    <?php if(isset($_SESSION['errorMsg'])): ?>
+                                    <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
+                                        <div class="d-flex align-items-center">
+                                            <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
+                                            </div>
+                                            <div class="ms-3">
+                                                <h6 class="mb-0 text-white">Error </h6>
+                                                <div class="text-white"><?php echo $_SESSION['errorMsg']; ?></div>
+                                            </div>
+                                        </div>
+                                        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                                    </div>
+                                    <?php  unset($_SESSION['errorMsg']);     endif;  ?>           
+            <hr>
+            <form method = "POST" enctype="multipart/form-data">
+                  <div class="form-group">
+                      <label for="documentType">Select Document Type</label>
+                      <select id="documentType" class="form-control form-control-rounded single-select" name="select_type">
+                        <option value="">Select Document Type</option>
+                        <option value="national_id">National Id</option>
+                        <option value="driving_licence">Driving Licence</option>
+                        <option value="passport">Passport</option>
+                      </select>
                     </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0 text-white">Success </h6>
-                        <div class="text-white"><?php echo $_SESSION['successMsg']; ?></div>
-                    </div>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <?php  unset($_SESSION['successMsg']);     endif;  ?>
-            
-            <?php if(isset($_SESSION['errorMsg'])): ?>
-            <div class="alert alert-danger border-0 bg-danger alert-dismissible fade show py-2">
-                <div class="d-flex align-items-center">
-                    <div class="font-35 text-white"><i class='bx bxs-message-square-x'></i>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0 text-white">Error </h6>
-                        <div class="text-white"><?php echo $_SESSION['errorMsg']; ?></div>
-                    </div>
-                </div>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            </div>
-            <?php  unset($_SESSION['errorMsg']);     endif;  ?>      
-
-      </div>
-   </div>
-   <div class="col-md-6">
-      <div class="rightwithdrawal">
-
-         <h2>Upload your Documents<span> Only .jpeg & .png files are allowed for upload</span></h2>
-         
-       <form method = "POST" enctype="multipart/form-data">
-
-       <!-- <label>Document Type</label>
-       <select>
-          <option>Select Document Type</option>
-       </select> -->
-
-        <label for="documentType">Select Document Type</label>
-        <select id="documentType" class="form-control form-control-rounded single-select" name="select_type">
-            <option value="">Select Document Type</option>
-            <option value="national_id">National Id</option>
-            <option value="driving_licence">Driving Licence</option>
-            <option value="passport">Passport</option>
-        </select>
-
-       <!-- <label>Enter Document ID Number</span></label>
-       <input type="text" name="" placeholder="Enter email ID"> -->
-        <div class="form-group mt-3">
-            <label for="idNumber">Enter ID Number</label>
-            <input type="text" class="form-control form-control-rounded" id="idNumber" name="id_no" placeholder="Enter Document ID">
-        </div>
-
-       <div class="row">
-          <div class="col-md-6">
-             <!-- <label>Issuance Date</label>
-             <input type="date" name=""> -->
-            <label for="issuanceDate ">Issuance Date</label>
-            <input type="date" class="form-control form-control-rounded datepicker" id="issuanceDate" name="issuence_date" placeholder="Select Date..">
-          </div>
-          <div class="col-md-6">
-             <!-- <label>Expiry Date</label>
-             <input type="date" name=""> -->
+              <div class="form-group mt-3">
+                <label for="personalPic">Personal Picture</label>                
+                  <small class=" text-danger">(Only jpg and png files are allowed)</small>
+                <input type="file" class="form-control form-control-rounded" id="personalPic" name="fileToUpload" >
+              </div>
+              
+              <div class="form-group mt-3">
+                <label for="frontSide">Front Side</label>                
+                  <small class="text-danger">(Only jpg and png files are allowed)</small>
+                <input type="file" class="form-control form-control-rounded" id="frontSide" name="fileToUpload1" >
+              </div>
+              
+              <div class="form-group mt-3">
+                <label for="backSide">Back Side</label>                
+                  <small class="text-danger">(Only jpg and png files are allowed)</small>
+                <input type="file" class="form-control form-control-rounded" id="backSide" name="fileToUpload2" >
+              </div>
+              <!-- <div class="form-group mt-3">
+                <label for="backSide">Contract Image</label>                
+                  <small class="text-danger">(Only jpg and png files are allowed)</small>
+                <input type="file" class="form-control form-control-rounded" id="contract" name="fileToUpload3" >
+              </div> -->
+              
+              <div class="form-group mt-3">
+                <label for="idNumber">Enter ID Number</label>
+                <input type="text" class="form-control form-control-rounded" id="idNumber" name="id_no" placeholder="Enter Document ID">
+              </div>
+              
+              <div class="form-group mt-3">
+                <label for="issuanceDate ">Issuance Date</label>
+                <input type="date" class="form-control form-control-rounded datepicker" id="issuanceDate" name="issuence_date" placeholder="Select Date..">
+              </div>
+              <div class="form-group mt-3">
                 <label for="expiryDate">Expiry Date</label>
                 <input type="date" class="form-control form-control-rounded datepicker" id="expiryDate" name="expire_date" placeholder="Select Date..">
+              </div>
+              
+              <!-- <div class="form-group mt-3">
+                <label for="pass">Password</label>
+                <input type="password" class="form-control form-control-rounded" id="pass" name="pass" placeholder="Enter Password">
+              </div> -->
+              <div class="form-group mt-3 text-center">
+                <button type="submit" class="btn bg-gradient-rose-button-dark text-white btn-round px-5" name = "kyc_submit"><i class="icon-lock"></i> Submit Request</button>
+              </div>
+            </form>
           </div>
-       </div>
-
-       <div class="row">
-          <div class="col-md-6">
-             <label for="frontSide">Front Side of the Document</label>
-             <div class="doc_div text-center">
-                <img src="assets/images/icons/doc.svg" class="doc"><br>
-                <input type="file" class="form-control form-control-rounded" id="frontSide" name="fileToUpload1" >
-                <button class="choose-btn">Choose Image</button>
-             </div>
-          </div>
-          <div class="col-md-6">
-             <label for="backSide">Back Side of the Document</label>
-             <div class="doc_div text-center">
-                <img src="assets/images/icons/doc.svg" class="doc"><br>
-                <input type="file" class="form-control form-control-rounded" id="backSide" name="fileToUpload2" >
-                <button class="choose-btn">Choose Image</button>
-             </div>
-          </div>
-          <div class="col-md-6">
-             <label for="personalPic">Personal Picture</label>
-             <div class="doc_div text-center">
-                <img src="assets/images/icons/profilee.svg" class="doc"><br>
-                <input type="file" class="form-control form-control-rounded" id="personalPic" name="fileToUpload" >
-
-                <button class="choose-btn">Choose Image</button>
-             </div>
-          </div>
-       </div>
-
-        
-
-
-       <!-- <button class="submit-btn">Submit Request</button> -->
-       <button type="submit" class="btn submit-btn  btn-round px-5" name = "kyc_submit"><i class="icon-lock"></i> Submit Request</button>
-
-
-       </form>
-
-
+        </div>
       </div>
-   </div>
-</div>
-
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-   <!---------FOOTER START------>
-<?php echo footer_(); ?>
-   <!---------FOOTER END------>
-
-<!--------------------------- SCRIPTS ------------------------------------->
-
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/owl.carousel.min.js"></script>
-<script src="assets/js/sweetalert2.min.js"></script>
-
-
-</body>
-</html>
+    </div>
+    
+  </div>
+  <!-- End container-fluid-->
+  
+  </div><!--End content-wrapper-->
+  
+  <?php include 'footer.php'; ?>

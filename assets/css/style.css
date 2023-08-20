@@ -1131,6 +1131,41 @@ margin-top: -2.5vw;
 }
 
 
+.rightwithdrawal h2{
+	font-size: 1vw;
+}
+
+.rightwithdrawal h2 span{
+	font-size: 0.5vw;
+}
+
+
+.rightwithdrawal .doc_div{
+ padding: 1vw;
+ background-color: #ffffff;
+ border-radius: 0.4vw;
+}
+
+.rightwithdrawal .doc_div .doc{
+	width: 3vw;
+	height: 3vw;
+	object-fit: contain;
+}
+
+.rightwithdrawal .doc_div .choose-btn{
+	background-color: #6D1ED1;
+    border-radius: 0.4vw;
+    font-size: 0.6vw;
+    color: #ffffff;
+    height: 2vw;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    border: none;
+    margin-top: 0.5vw;
+}
+
+
+
 .rightwithdrawal .avail_div{
 background-color: #ffffff;
 border-radius: 0.4vw;

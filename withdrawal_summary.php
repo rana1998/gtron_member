@@ -46,7 +46,11 @@ include_once("components/footer.php");
    
 <h2><img src="assets/images/icons/notice.svg">WITHDRAWAL SUMMARY<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="bonuses-summary.php">/ Withdrawal Summary</a></span></h2>
 
-<button class="profile-btn"><img src="assets/images/icons/profile.png">Jayson Smith</button>
+<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
+    echo "assets/images/icons/profile.png";
+}?>"><?php if($full_name != '') { echo $full_name; } else {
+    echo $user_name;
+}?></button>
 
 
 <div class="row pendingrow">
