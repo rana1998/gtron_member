@@ -4,12 +4,12 @@ include_once("components/navbar.php");
 include_once("components/sidebar.php");
 include_once("components/footer.php");
 
-// if($userKyc == 'Verified')
-// {
-//     $_SESSION['successMsg'] = "Kyc already verified.";
-//     header("Location: index.php");
-//     exit();
-// }
+if($userKyc == 'Verified')
+{
+    $_SESSION['successMsg'] = "Kyc already verified.";
+    header("Location: index.php");
+    exit();
+}
 
 
 $user_name = $_SESSION['user_name'];
@@ -288,6 +288,60 @@ if ($stmt->execute() === TRUE) {
   .owl-nav.disabled{
     display: none !important;
   }
+
+  /* Style for the container of the file input */
+.custom-file-input {
+  display: inline-block;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+/* Style for the input element itself (hidden) */
+/* .custom-file-input input[type="file"] {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+} */
+
+/* Style for the label or selected file name */
+/* .custom-file-input label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 0;
+  padding: 0;
+} */
+
+/* Optional: Style for when the file input is focused or active */
+/* .custom-file-input:focus-within {
+  border-color: #66afe9;
+  box-shadow: 0 0 5px rgba(102, 175, 233, 0.6);
+} */
+
+.custom-file-input-label {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f5f5f5;
+  color: #333;
+  cursor: pointer;
+}
+
+/* Hide the actual input element */
+.custom-file-input {
+  display: none;
+}
+
 </style>   
 
    <!---------NAVBAR START------>
@@ -393,28 +447,32 @@ if ($stmt->execute() === TRUE) {
 
        <div class="row">
           <div class="col-md-6">
-             <label for="frontSide">Front Side of the Document</label>
+             <label>Front Side of the Document</label>
              <div class="doc_div text-center">
                 <img src="assets/images/icons/doc.svg" class="doc"><br>
-                <input type="file" class="form-control form-control-rounded" id="frontSide" name="fileToUpload1" >
-                <button class="choose-btn">Choose Image</button>
+                <label for="frontSide" class="custom-file-input-label choose-btn">Choose file</label>
+                <input type="file" class="custom-file-input" id="frontSide" name="fileToUpload1" placeholder="">
+                <!-- <button class="choose-btn">Choose Image</button> -->
              </div>
           </div>
           <div class="col-md-6">
-             <label for="backSide">Back Side of the Document</label>
+             <label>Back Side of the Document</label>
              <div class="doc_div text-center">
                 <img src="assets/images/icons/doc.svg" class="doc"><br>
-                <input type="file" class="form-control form-control-rounded" id="backSide" name="fileToUpload2" >
-                <button class="choose-btn">Choose Image</button>
+                <label for="backSide" class="custom-file-input-label choose-btn">Choose file</label>
+                <input type="file" class="custom-file-input" id="backSide" name="fileToUpload2" placeholder="">
+                <!-- <button class="choose-btn">Choose Image</button> -->
              </div>
           </div>
           <div class="col-md-6">
-             <label for="personalPic">Personal Picture</label>
+             <label>Personal Picture</label>
+            
              <div class="doc_div text-center">
                 <img src="assets/images/icons/profilee.svg" class="doc"><br>
-                <input type="file" class="form-control form-control-rounded" id="personalPic" name="fileToUpload" >
+                <label for="personalPic" class="custom-file-input-label choose-btn">Choose file</label>
+                <input type="file" class="custom-file-input" id="personalPic" name="fileToUpload" placeholder="">
 
-                <button class="choose-btn">Choose Image</button>
+                <!-- <button class="choose-btn">Choose Image</button> -->
              </div>
           </div>
        </div>

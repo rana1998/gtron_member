@@ -51,7 +51,7 @@ function sidebar_($userStatus){ ?>
       ?>
 
       <li><a href="profile.php"><img src="assets/images/icons/profile.svg" class="icon">Profile</a></li>
-      <li><a><img src="assets/images/icons/kyc.svg" class="icon">KYC</a></li>
+      <li><a href="kyc.php"><img src="assets/images/icons/kyc.svg" class="icon">KYC</a></li>
       <li><a href="buy-pkg.php"><img src="assets/images/icons/buy.svg" class="icon">Buy Package</a></li>
       <li><a href="withdrawal.php"><img src="assets/images/icons/withdrawal.svg" class="icon">Withdrawal</a></li>
       <li><a href="internal-wallet-transfer.php"><img src="assets/images/icons/wallet_transfer.svg" class="icon">Internal Wallet Transfer</a></li>
