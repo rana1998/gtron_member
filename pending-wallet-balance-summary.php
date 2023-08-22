@@ -58,7 +58,7 @@ include_once("components/footer.php");
    <div class="col-md-9 pending">
      
 <div class="table-responsive">      
-<table class="table table-striped">
+<table id="data-table-id" class="table table-striped">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -82,7 +82,7 @@ $stmt->bind_param("s", $user_name); // Bind the parameter
 $stmt->execute(); // Execute the statement
 $result = $stmt->get_result();
 if($result->num_rows < 1){
-    echo ' <tr>No recode found.</tr>';
+    echo ' <tr>No records found.</tr>';
     $stmt->close();
 }else{
     $x = 1;
@@ -160,6 +160,15 @@ if($result->num_rows < 1){
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/sweetalert2.min.js"></script>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script>
+   $(document).ready(function() {
+         $('#data-table-id').DataTable();
+      });
+   </script>
 
 
 </body>

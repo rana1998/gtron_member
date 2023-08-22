@@ -56,7 +56,7 @@ include_once("components/footer.php");
    <div class="col-md-12 package">
      
 <div class="table-responsive">      
-<table class="table table-striped">
+<table id="data-table-id" class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Sr No.</th>
@@ -229,6 +229,14 @@ if($result->num_rows < 1){
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/sweetalert2.min.js"></script>
 
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+
+<script>
+   $(document).ready(function() {
+         $('#data-table-id').DataTable();
+      });
+   </script>
 
 </body>
 </html>
