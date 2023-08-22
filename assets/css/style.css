@@ -63,6 +63,10 @@ a{
 	display: flex;
 }
 
+.navbar{
+	display: none;
+}
+
 .left{
 	background-color: #16171B;
 	min-height: 100vh;

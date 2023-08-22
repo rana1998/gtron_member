@@ -5,12 +5,59 @@
     display: block;
 }
 
+.navbar{
+    display: block;
+    background-color: #000000 !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.navbar .logo img{
+    width: 7rem;
+}
+
+
+.navbar ul{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.navbar ul li{
+    padding-bottom: 1rem;
+}
+
+
+.navbar ul a{
+    font-size: 0.8rem;
+    color: #ffffff;
+}
+
+.navbar ul a img{
+    width: 0.8rem;
+    margin-right: 0.5rem;
+}
+
+
+.navbar .logout-btn {
+    position: relative;
+    font-family: 'inter-medium', serif;
+    padding: 0.8rem;
+    width: 100%;
+    font-size: 0.8rem;
+    background: transparent;
+    border-radius: 1rem;
+    color: #F62E2E;
+    border: 1px solid #351A1E;
+}
+
 .left{
     min-height: auto;
     width: 100%;
     padding-left: 1rem;
     padding-top: 2.2rem;
     padding-right: 1rem;
+    display: none;
 }
 
 .left .logo{
