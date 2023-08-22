@@ -74,16 +74,6 @@ include_once("components/footer.php");
         font-size: 0.875em; /* Adjust font size for smaller screens */
     }
 }
-
-.middle {
-    background-color: #ffffff;
-    min-height: 100vh;
-    /* width: 42%; */
-    padding-top: 2.2vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-}
-
 </style>   
 
    <!---------NAVBAR START------>
@@ -143,19 +133,8 @@ if($sql->rowCount()>0){
  <!---------SIDEBAR START------>
  <?php echo sidebar_($userStatus,$userKyc); ?>
    <!-----SIDEBAR END---->
-   <style>
-   .middle {
-    background-color: #ffffff;
-    min-height: 100vh;
-    width: auto;
-    padding-top: 2.2vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    /* margin-left: 10%;  */
-}
 
-</style>  
-<div class="middle col-md-6">
+<div class="middle">
 
 <!-- Start alert div managing -->
 <div class="parent-container-alert">
@@ -205,30 +184,21 @@ if($sql->rowCount()>0){
    
    <h1>
       <!-- <img src="assets/images/icons/profile.png"> -->
-      <!-- <img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>"> -->
-      <img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
-    echo "assets/images/icons/profile.png";
-}?>">
-
+      <img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>">
       Welcome, <span><?php echo $fectchUserName;?></span>
    </h1>
 
-   <!-- <div class="input-div">
+   <div class="input-div">
     <img src="assets/images/icons/search.svg" class="search-icon">  
    <input class="search" type="search"  aria-label="Search">
     <button class="search-btn">Search</button>
-   </div> -->
-
-   <!-- <button class="profile-btn">
-<img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>">
-<?php echo $fectchUserName;?></button> -->
+   </div>
 
 
-   <div class="row justify-content-between">
-      <div class="col-md-7 wallet-div">
-      <p id="walletAddressMsg"></p>
+   <div class="row">
+      <div class="col-md-8 wallet-div">
          <!-- <p>Wallet address : <span>0xAB99a674486F9A2856958214B413a33b91F1a4Df</span></p>  -->
-         <p>Wallet address : <span id="walletAddressId"><?= $userUsdtTrcAdress ;?></span></p> 
+         <p>Wallet address : <span><?= $userUsdtTrcAdress ;?></span></p> 
          <button class="copy-btn"><img src="assets/images/icons/copy.svg">Copy</button>
       </div>
       <div class="col-md-4 id-div">
@@ -274,7 +244,7 @@ if($sql->rowCount()>0){
                   <h2>465</h2>
                </div> -->
             </div>
-            <!-- <button>View</button> -->
+            <button>View</button>
          </div>
 
 
@@ -304,7 +274,7 @@ if($sql->rowCount()>0){
                   <img src="assets/images/pink-graph.png">
                </div>
             </div>
-            <!-- <button>View</button> -->
+            <button>View</button>
       </div>
 
 
@@ -422,22 +392,22 @@ if($sql->rowCount()>0){
             <img src="assets/images/white-graph.png">
          </div>
 
-         <!-- <div class="row">
+         <div class="row">
             <div class="col-md-12 text-center">
                <h3>REMAINING TIME:</h3>
                <h4>01D   02H   07M   17S</h4>
             </div>
-         </div> -->
+         </div>
 
-         <button class="upgrade-btn" onclick="window.location.href='buy-pkg.php'"><img src="assets/images/icons/upgrade.svg">Upgrade Package</button>
+         <button class="upgrade-btn"><img src="assets/images/icons/upgrade.svg">Upgrade</button>
 
          <hr/>
 
-         <p>GTRON wallet balance</p>
-         <h6>$<?php echo number_format($gtron_wallet,2); ?></h6>
+         <p>SUPER REWARDS</p>
+         <img src="assets/images/rewards.png" class="rewards">
 
-         <!-- <button class="tree-btn">Tree View</button>
-         <button class="activated-btn">4x Activated</button> -->
+         <button class="tree-btn">Tree View</button>
+         <button class="activated-btn">4x Activated</button>
 
 
 
@@ -458,28 +428,16 @@ if($sql->rowCount()>0){
       </div>
    </div>
    <div class="col-md-7 announcements-outer">
-      <?php 
-         // Prepare and execute query
-         $query = "SELECT * FROM announcement";
-         $statement = $conn->prepare($query);
-         $statement->execute();
-
-         // Fetch data
-         $announcements = $statement->fetchAll(PDO::FETCH_ASSOC);
-      ?>
       <div class="announcements">
          <h2><img src="assets/images/icons/horn.svg">Announcements:</h2>
-         <?php foreach ($announcements as $announcement): ?>
-            <p><img src="assets/images/icons/hor.svg"><?php echo $announcement['title']; ?> </p>
-        <?php endforeach; ?>
-         <!-- <p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
+         <p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
 <b>GTRON Rewards.</b></p>
 <p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
 <b>GTRON Rewards.</b></p>
 <p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
 <b>GTRON Rewards.</b></p>
 <p><img src="assets/images/icons/hor.svg">Refer more than 4 people and get exciting 
-<b>GTRON Rewards.</b></p> -->
+<b>GTRON Rewards.</b></p>
       </div>
    </div>
 </div>
@@ -498,9 +456,10 @@ if($sql->rowCount()>0){
 
 
 </div>
-<!-- <div class="right">
+<div class="right">
    
 <button class="profile-btn">
+<!-- <img src="assets/images/icons/profile.png"> -->
 <img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>">
 <?php echo $fectchUserName;?></button>
 <h2><img src="assets/images/icons/withdrawals.svg">WITHDRAWALS</h2>
@@ -523,7 +482,7 @@ if($sql->rowCount()>0){
 
 
 
-</div> -->
+</div>
 
 </section>
 
@@ -556,31 +515,6 @@ if($sql->rowCount()>0){
 <!--Added for alert Include Bootstrap CSS and JavaScript -->
 <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
-<script>
-$(document).ready(function() {
-        $(".copy-btn").click(function() {
-            // Get the wallet address text
-            var walletAddress = $("#walletAddressId").text();
 
-            // Create a hidden input element
-            var tempInput = $("<input>");
-            $("body").append(tempInput);
-            tempInput.val(walletAddress).select();
-
-            // Copy the wallet address to the clipboard
-            document.execCommand("copy");
-            tempInput.remove();
-
-            // Show success message
-            $("#walletAddressMsg").text("Copied address successfully").css("color", "green");
-
-            // Hide the message after a delay
-            setTimeout(function() {
-                $("#walletAddressMsg").text("").css("color", ""); // Clear the message and reset color
-            }, 3000); // 3000 milliseconds (3 seconds) delay
-
-        });
-    });
-</script>
 </body>
 </html>

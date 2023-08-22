@@ -62,8 +62,6 @@ $userMonthlyShare = $data['monthly_share'];
 // $leadershipBonus = $data['leadership_bonus'];
 $activationFee = $data['activation_fee'];
 
-$gtron_wallet = $data['gtron_wallet'];
-
 $regDate=$data['date'];
 
 $stmt->close();

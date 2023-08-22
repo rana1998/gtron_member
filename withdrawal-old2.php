@@ -235,13 +235,6 @@ if (empty($otpCode)) {
   .owl-nav.disabled{
     display: none !important;
   }
-
-  .text-primary {
-      word-wrap: break-word; /* Allow long words to break */
-      max-width: 100%; /* Prevent text from overflowing the container */
-      /* font-size: 3%; Font size as a percentage of the parent element's font size */
-  }
-
 </style>   
 
    <!---------NAVBAR START------>
@@ -384,7 +377,7 @@ if (empty($otpCode)) {
         <input type="password" class="" placeholder="Enter Transaction Password" name="transactionpassword" value="">
 
        <p class="dont_p">
-          Dont have Transaction password set?  <a href="profile.php">Click Here</a> to set.
+          Dont have Transaction password set?  <a>Click Here</a> to set.
        </p>
 
        <!-- <button class="submit-btn">Submit Now</button> -->

@@ -582,16 +582,7 @@ if(isset($_POST['updateUsdtAddress']))
                <h4 class="grey"><?php
                 if($regDate != '') {
 
-                    
-                // Create a DateTime object from the datetime string
-                $dateTime = new DateTime($regDate);
-
-                // Format the DateTime object to display only the date
-                $dateOnly = $dateTime->format("Y-m-d");
-
-                echo $dateOnly;
-
-                // echo  $regDate;
+                echo  $regDate;
                 // if($activationFee == 'Paid')
                 // {
                 //    echo'<span class="badge bg-success">Paid</span>'; 
@@ -637,17 +628,6 @@ if(isset($_POST['updateUsdtAddress']))
                         ?>
                </h4>
                <h4 class="blue">
-                <?php 
-                 // Prepare and execute query
-                    $query = "SELECT package_name FROM package WHERE id = :pkg_id";
-                    $statement = $conn->prepare($query);
-                    $statement->bindValue(':pkg_id', $userPkgId, PDO::PARAM_INT);
-                    $statement->execute();
-
-                    // Fetch package name
-                    $package = $statement->fetchColumn();
-                    print_r($package);
-                ?>
                <?php
                     if($userPkgId == 0)
                     {
@@ -682,7 +662,7 @@ if(isset($_POST['updateUsdtAddress']))
                             $pkgName = 'Black Diamond';
                     }
                     
-                    // echo $pkgName;
+                    echo $pkgName;
                     ?>
                </h4>
             </div>

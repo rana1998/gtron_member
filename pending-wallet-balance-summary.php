@@ -39,14 +39,19 @@ include_once("components/footer.php");
 <section id="outer">
 
    <!---------SIDEBAR START------>
-<?php echo sidebar_($userStatus); ?>
+<?php echo sidebar_($userStatus,$userKyc); ?>
    <!-----SIDEBAR END---->
 
 <div class="middlee">
    
 <h2><img src="assets/images/icons/notice.svg">CASH WALLET<span class="light"><a href="index.php">Home</a> </span><span class="dark"><a href="pending-wallet-balance-summary.php">/ Cash Wallet</a></span></h2>
 
-<button class="profile-btn"><img src="assets/images/icons/profile.png">Jayson Smith</button>
+<!-- <button class="profile-btn"><img src="assets/images/icons/profile.png">Jayson Smith</button> -->
+<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
+    echo "assets/images/icons/profile.png";
+}?>"><?php if($full_name != '') { echo $full_name; } else {
+    echo $user_name;
+}?></button>
 
 
 <div class="row pendingrow">
@@ -117,14 +122,14 @@ if($result->num_rows < 1){
 
 ?>
               </tbody>
-  <tfoot>
+  <thead>
     <tr>
       <th scope="col">#</th>
       <th scope="col">Amount</th>
       <th scope="col">Expires at</th>
       <th scope="col">Is Expired</th>
     </tr>
-  </tfoot>
+  </thead>
 </table>
 </div>
 

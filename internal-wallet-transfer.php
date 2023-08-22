@@ -234,7 +234,7 @@ if (isset($_POST['withdrawal_request']) && $_POST) {
 <section id="outer">
 
    <!---------SIDEBAR START------>
-<?php echo sidebar_($userStatus); ?>
+<?php echo sidebar_($userStatus,$userKyc); ?>
    <!-----SIDEBAR END---->
 
 <div class="middlee">
