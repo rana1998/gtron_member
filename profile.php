@@ -380,6 +380,7 @@ $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
 
 // Check if image file is a actual image or fake image
   $check = getimagesize($_FILES["profile_pic"]["tmp_name"]);
+  
   if($check !== false) {
     // echo "File is an image - " . $check["mime"] . ".";
     $uploadOk = 1;
@@ -559,11 +560,16 @@ if(isset($_POST['updateUsdtAddress']))
                             }
                         </style>
 
-                        <button class="combined-btn btn btn-secondary btn-sm upload-btn">
+                            <label class="combined-btn btn btn-secondary btn-sm upload-btn" for="inputGroupFile04">
+                                Choose File
+                            </label>
+                            <input type="file" name="profile_pic" class="form-control form-control-sm d-none" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+
+                        <!-- <button class="combined-btn btn btn-secondary btn-sm upload-btn">
                             Choose File
                         </button>
 
-                        <input type="file" name="profile_pic" class="form-control form-control-sm" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+                        <input type="file" name="profile_pic" class="form-control form-control-sm" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"> -->
                         <button class="btn btn-secondary btn-sm remove-btn" type="submit" name="image_upload" id="inputGroupFileAddon04">Upload</button>
                     </div>
                 </form>
