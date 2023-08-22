@@ -541,7 +541,8 @@ if(isset($_POST['updateUsdtAddress']))
 
 
 <div class="row profilerow">
-   <div class="col-md-4">
+   <!-- <div class="col-md-4"> -->
+   <div class="col-md-5">
       <div class="leftprofile">
          <div class="row">
             <div class="col-md-12 text-center">
@@ -560,17 +561,11 @@ if(isset($_POST['updateUsdtAddress']))
                             }
                         </style>
 
-                            <label class="combined-btn btn btn-secondary btn-sm upload-btn" for="inputGroupFile04">
+                            <label class="combined-btn btn btn-secondary btn-sm upload-btn d-inline-flex align-items-center justify-content-center" for="inputGroupFile04">
                                 Choose File
                             </label>
                             <input type="file" name="profile_pic" class="form-control form-control-sm d-none" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-
-                        <!-- <button class="combined-btn btn btn-secondary btn-sm upload-btn">
-                            Choose File
-                        </button>
-
-                        <input type="file" name="profile_pic" class="form-control form-control-sm" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload"> -->
-                        <button class="btn btn-secondary btn-sm remove-btn" type="submit" name="image_upload" id="inputGroupFileAddon04">Upload</button>
+                            <button class="btn btn-secondary btn-sm remove-btn" type="submit" name="image_upload" id="inputGroupFileAddon04">Upload</button>
                     </div>
                 </form>
                <!-- <button class="upload-btn">Upload New</button>
@@ -695,7 +690,8 @@ if(isset($_POST['updateUsdtAddress']))
          </div>
       </div>
    </div>
-   <div class="col-md-6">
+   <!-- <div class="col-md-6"> -->
+   <div class="col-md-7">
       <div class="rightprofile">
       <?php if(isset($_SESSION['successMsg'])): ?>
         <div class="alert alert-success border-0 bg-success alert-dismissible fade show py-2">
@@ -728,7 +724,7 @@ if(isset($_POST['updateUsdtAddress']))
         <form method="POST">
          <h2>Edit your<br><span>Profile</span></h2>
          <!-- <button class="save-btn">Save Changes</button> -->
-         <button type="submit" name="edit_profile" class="save-btn" value="Update">Save Changes</button>
+         <button type="submit" name="edit_profile" class="save-btn" value="Update">Update profile</button>
 
          
        
@@ -821,12 +817,14 @@ if(isset($_POST['updateUsdtAddress']))
 
         </form>
 
-        <!-- Added gfrom previous old code -->
-        <!-- <div class="tab-pane fade p-3" id="dangercontact" role="tabpanel">
+        <!-- Added gtron previous old code -->
+        <!-- <div class="tab-pane fade p-3" id="dangercontact" role="tabpanel"> -->
+        <div class="tab-pane p-3" id="dangercontact" role="tabpanel">
             <form method="POST">
             <div class="row mb-3">
                 <div class="col-sm-3">
-                        <h6 class="mb-0">Current Password</h6>
+                        <!-- <h6 class="mb-0">Current Password</h6> -->
+                        <label class="mb-0">Current Password</label>
                     </div>
                     <div class="col-sm-9 text-secondary">
                         <div class="input-group" id="show_hide_password">
@@ -836,7 +834,8 @@ if(isset($_POST['updateUsdtAddress']))
             </div>
                 <div class="row mb-3">
                 <div class="col-sm-3">
-                        <h6 class="mb-0">New Password</h6>
+                        <!-- <h6 class="mb-0">New Password</h6> -->
+                        <label class="mb-0">New Password</label>
                     </div>
                     <div class="col-sm-9 text-secondary">
                         <div class="input-group" id="show_hide_password2">
@@ -852,7 +851,8 @@ if(isset($_POST['updateUsdtAddress']))
             </div>
             <div class="row mb-3">
                 <div class="col-sm-3">
-                        <h6 class="mb-0">Confirm Password</h6>
+                        <!-- <h6 class="mb-0">Confirm Password</h6> -->
+                        <label class="mb-0">Confirm Password</label>
                     </div>
                     
                     <div class="col-sm-9 text-secondary">
@@ -866,13 +866,14 @@ if(isset($_POST['updateUsdtAddress']))
                     <div class="col-sm-3"></div>
                     <div class="col-sm-9">
                         <div class="d-flex ">
-                            <input type="submit" name="updatePassword" class="btn btn-sm bg-gradient-rose-button text-white" value="Update" />
+                            <!-- <input type="submit" name="updatePassword" class="btn btn-sm bg-gradient-rose-button text-white" value="Update" /> -->
+                            <input type="submit" style="width:40%"name="updatePassword" class="btn btn-sm save-btn mt-2" value="Update password" />
                         </div>
                     </div>
                 </div>	
             </form>
-        </div> -->
-        <!-- Added gfrom previous old code -->
+        </div>
+        <!-- Added gtron previous old code -->
 
       </div>
    </div>
@@ -914,12 +915,12 @@ if(isset($_POST['updateUsdtAddress']))
 
 <script>
     // Trigger the file input when the combined button is clicked
-    const combinedBtn = document.querySelector('.combined-btn');
-    const fileInput = document.getElementById('inputGroupFile04');
+    // const combinedBtn = document.querySelector('.combined-btn');
+    // const fileInput = document.getElementById('inputGroupFile04');
 
-    combinedBtn.addEventListener('click', () => {
-      fileInput.click();
-    });
+    // combinedBtn.addEventListener('click', () => {
+    //   fileInput.click();
+    // });
 </script>
 
 
