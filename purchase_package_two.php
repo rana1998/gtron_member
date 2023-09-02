@@ -46,7 +46,31 @@ if (isset($data['id'])) {
 
              $pendingbonus = $row['pending_amount'];
 
+             $wallet_address  = $row['wallet_address'];
+
     }
+
+    //Add Referral Bonus on purchasing package
+    if(isset($sponsor_name) && $sponsor_name != '') {
+        $sponseruserinfo = "SELECT * FROM user_registration WHERE user_name='$sponsor_name'";
+        $sponseruserres = mysqli_query($conn2, $sponseruserinfo);
+        $sponserdata = mysqli_fetch_assoc($sponseruserres);
+        $sponser_wallet_address = $sponserdata['wallet_address'];
+
+        $gtc_amount = (int)$package_amount*50;
+        $insertReferralBonuses = "INSERT INTO referral_bonuses (`package_id`, `package_amount_usdt`, `gtc_bonus`, `wallet_address`, `user_name`, `purchaser_name`) VALUES ('$packageid',  '$package_amount', '$gtc_amount', '$sponser_wallet_address', '$sponsor_name', '$user_name')";
+        mysqli_query($conn2, $insertReferralBonuses);    
+    }
+
+    //  Package Bonus 
+    //  50 - 5000 Gtc 
+    //  100 - 10000 Gtc
+    //  250 - 25000 Gtc
+    //  500 - 50000Gtc
+    //  1000 - 100000 Gtc
+    $gtc_amount_pb = (int)$package_amount*100;
+    $insertPackageBonuses = "INSERT INTO package_bonuses (`package_id`, `package_amount_usdt`, `gtc_bonus`, `wallet_address`, `user_name`) VALUES ('$packageid',  '$package_amount', '$gtc_amount_pb', '$wallet_address', '$user_name')";
+    mysqli_query($conn2, $insertPackageBonuses);
 
     //find final value here
     if($pendingbonus == 0){

@@ -2,7 +2,7 @@
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
-include_once("components/footer.php");
+// include_once("components/footer.php");
 
 
 $page_title = 'Buy Package';
@@ -838,7 +838,8 @@ Subscribed.</span></h2> -->
 
 
    <!---------FOOTER START------>
-<?php echo footer_(); ?>
+<?php //echo footer_(); ?>
+<?php include_once("components/footer.php"); ?>
    <!---------FOOTER END------>
 
 <!--------------------------- SCRIPTS ------------------------------------->

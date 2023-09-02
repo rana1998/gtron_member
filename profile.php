@@ -3,7 +3,7 @@
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
-include_once("components/footer.php");
+// include_once("components/footer.php");
 ?>
 
 <!DOCTYPE html>
@@ -904,7 +904,8 @@ if(isset($_POST['updateUsdtAddress']))
 
 
    <!---------FOOTER START------>
-<?php echo footer_(); ?>
+<?php //echo footer_(); ?>
+<?php include_once("components/footer.php"); ?>
    <!---------FOOTER END------>
 
 <!--------------------------- SCRIPTS ------------------------------------->

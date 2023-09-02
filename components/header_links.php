@@ -1,4 +1,10 @@
 <?php 
+// Hide notices and warnings
+error_reporting(E_ALL & ~E_NOTICE & ~E_WARNING);
+
+// Disable error display
+ini_set('display_errors', 0);
+
 include "core/connection.php";
 include('userInformation.php');
 	// If the user is not logged in redirect to the login page...

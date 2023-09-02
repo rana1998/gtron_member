@@ -2,7 +2,7 @@
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
-include_once("components/footer.php");
+// include_once("components/footer.php");
 
 ?>
 
@@ -63,7 +63,7 @@ include_once("components/footer.php");
       <th scope="col">Amount</th>
       <th scope="col">Description</th>
       <th scope="col">Type</th>
-      <th scope="col">Date</th>
+      <th scope="col">Datetime</th>
       <th scope="col">Transaction Status</th>
     </tr>
   </thead>
@@ -116,88 +116,6 @@ if($result->num_rows < 1){
 
 ?>
               </tbody>
-  <!-- <tbody>
-    <tr>
-      <td><p>1</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>2</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>3</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>4</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>5</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>6</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>7</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>8</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>9</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-    <tr>
-      <td><p>10</p></td>
-      <td><p>$5.87777776</p></td>
-      <td><p>Pool Bonus</p></td>
-      <td><p>USDT (TRC20)</p></td>
-      <td><p>2023-07-15      09:09:56</p></td>
-      <td><p class="green">Completed</p></td>
-    </tr>
-  </tbody> -->
 </table>
 </div>
 
@@ -220,7 +138,8 @@ if($result->num_rows < 1){
 
 
    <!---------FOOTER START------>
-<?php echo footer_(); ?>
+<?php //echo footer_(); ?>
+<?php include_once("components/footer.php"); ?>
    <!---------FOOTER END------>
 
 <!--------------------------- SCRIPTS ------------------------------------->

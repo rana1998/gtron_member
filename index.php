@@ -5,10 +5,6 @@ $page_title="Dashboard";
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
-include_once("components/footer.php");
-
-
-
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +26,10 @@ include_once("components/footer.php");
 
 
  <style>
-.owl-nav.disabled{
-   display: none !important;
-}
-
-.parent-container-alert {
+  .owl-nav.disabled{
+    display: none !important;
+  }
+  .parent-container-alert {
    position: relative;
 }   
 .transparent-bg {
@@ -74,16 +69,6 @@ include_once("components/footer.php");
         font-size: 0.875em; /* Adjust font size for smaller screens */
     }
 }
-
-.middle {
-    background-color: #ffffff;
-    min-height: 100vh;
-    /* width: 42%; */
-    padding-top: 2.2vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-}
-
 </style>   
 
    <!---------NAVBAR START------>
@@ -137,25 +122,13 @@ if($sql->rowCount()>0){
     }
 }
 ?>
+   <!---------SIDEBAR START------>
+<?php //echo sidebar_(); ?>
+<?php echo sidebar_($userStatus,$userKyc); ?>
 
-
-
- <!---------SIDEBAR START------>
- <?php echo sidebar_($userStatus,$userKyc); ?>
    <!-----SIDEBAR END---->
-   <style>
-   .middle {
-    background-color: #ffffff;
-    min-height: 100vh;
-    width: auto;
-    padding-top: 2.2vw;
-    padding-left: 3vw;
-    padding-right: 3vw;
-    /* margin-left: 10%;  */
-}
 
-</style>  
-<div class="middle col-md-6">
+<div class="middle">
 
 <!-- Start alert div managing -->
 <div class="parent-container-alert">
@@ -201,8 +174,8 @@ if($sql->rowCount()>0){
 </div>
 
 <!-- END alert div managing -->
-
    
+   <!-- <h1><img src="assets/images/icons/profile.png">Welcome, <span>Jayson</span></h1> -->
    <h1>
       <!-- <img src="assets/images/icons/profile.png"> -->
       <!-- <img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>"> -->
@@ -219,23 +192,20 @@ if($sql->rowCount()>0){
     <button class="search-btn">Search</button>
    </div> -->
 
-   <!-- <button class="profile-btn">
-<img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>">
-<?php echo $fectchUserName;?></button> -->
 
-
-   <div class="row justify-content-between">
-      <div class="col-md-7 wallet-div">
+   <div class="row">
+      <div class="col-md-8 wallet-div">
       <p id="walletAddressMsg"></p>
          <!-- <p>Wallet address : <span>0xAB99a674486F9A2856958214B413a33b91F1a4Df</span></p>  -->
          <p>Wallet address : <span id="walletAddressId"><?= $userUsdtTrcAdress ;?></span></p> 
-         <button class="copy-btn"><img src="assets/images/icons/copy.svg">Copy</button>
+         <!-- <button class="copy-btn"><img src="assets/images/icons/copy.svg">Copy</button> -->
+         <!-- <p>Wallet address : <span>0xAB99a674486F9A2856958214B413a33b91F1a4Df</span></p>
+         <button class="copy-btn"><img src="assets/images/icons/copy.svg">Copy</button> -->
       </div>
       <div class="col-md-4 id-div">
          <div class="id-div-inner">
-            <!-- <p>My User ID</p> 
-            <span>15364</span> -->
             <p>My User ID</p> 
+            <!-- <span>15364</span> -->
             <span><?= $user_id ;?></span>
          </div>
       </div>
@@ -248,26 +218,35 @@ if($sql->rowCount()>0){
          <div class="violet-div">
             <img src="assets/images/violet-graph.png">
             <p>Current Balance</p>
-            <h2>$<?= number_format($userCurrentBalance,2);?></h2>
+            <!-- <h2>$1,123.00</h2> -->
+            <h2>$ <?= number_format($userCurrentBalance,2);?></h2>
+           
          </div>
-          
-         <!-- <div class="orange-div">
-            <img src="assets/images/orange-graph.png">
-            <p>Direct Referal</p>
-            <h2>$8,964.00</h2>
-         </div> -->
-
+         <style>
+               .middle .orange-div button {
+                  width: 50%;
+                  border: none;
+                  background-color: #bdcad8;
+                  margin-top: 0.3vw;
+                  /* font-size: 0.55vw; */
+                  padding: 0.4vw;
+                  border-radius: 0.2vw;
+               }
+         </style>
          <div class="orange-div">
             <img src="assets/images/orange-graph.png">
-            <p>Direct Referral</p>
+            <p>Direct Referal</p>
+            <!-- <h2>$8,964.00</h2> -->
             <h2><?= $totalDirectReferalCount ?></h2>
+            <button   onclick="window.location.href='direct_team.php'">View</button>
          </div>
 
          <div class="grey-div">
             <div class="row">
                <div class="col-md-7 col-7">
                   <p>Level Bonus</p>
-                  <h2>$<?=number_format($levelBonus,2)?></h2>
+                  <!-- <h2>$867.00</h2> -->
+                  <?=number_format($levelBonus,2)?>
                </div>
                <!-- <div class="col-md-5 col-5">
                   <p>Counts</p>
@@ -275,12 +254,13 @@ if($sql->rowCount()>0){
                </div> -->
             </div>
             <!-- <button>View</button> -->
+            <button onclick="window.location.href='bonuses_summary.php'">View</button>
          </div>
 
 
       </div>
       <div class="col-md-5 m-div">
-
+         
        <!-- <div class="pink-div">
             <div class="row">
                <div class="col-md-7">
@@ -297,16 +277,16 @@ if($sql->rowCount()>0){
       <div class="pink-div">
             <div class="row">
                <div class="col-md-7">
-                  <p>Referral Bonus(Pending)</p>
+                  <!-- <p>Referral Bonus(Pending)</p> -->
+                  <p>Performance bonus</p>
                   <h2>$<?= number_format($pendingBalance,2);?></h2>
                </div>
                <div class="col-md-5">
                   <img src="assets/images/pink-graph.png">
                </div>
             </div>
-            <!-- <button>View</button> -->
+            <button onclick="window.location.href='pending-wallet-balance-summary.php'">View</button>
       </div>
-
 
 
       <!-- <div class="green-div">
@@ -320,17 +300,6 @@ if($sql->rowCount()>0){
                </div>
             </div>
       </div> -->
-      <div class="green-div">
-            <div class="row">
-               <div class="col-md-7">
-                  <p>Total Invest</p>
-                  <h2>$<?=number_format($total_invest,2)?></h2>
-               </div>
-               <div class="col-md-5">
-                  <img src="assets/images/green-graph.png">
-               </div>
-            </div>
-      </div>
 
 
       <div class="blue-div">
@@ -375,7 +344,6 @@ if($sql->rowCount()>0){
                   <img src="assets/images/blue-graph-2.png">
                </div>
             </div> -->
-
             <div class="row second-row">
                <div class="col-md-7 col-7">
                   <?php if($current_bonus_status == 'threeex'){ ?>
@@ -404,9 +372,9 @@ if($sql->rowCount()>0){
             <h2>100</h2>
             <img src="assets/images/white-graph.png">
          </div> -->
-
          <div class="white-div">
-            <p>Active Investment</p>
+            <!-- <p>Active Investment</p> -->
+            <p>ACTIVE PACKAGE</p>
             <?php
                   require 'connect.php';
                   $sql= $conn->prepare("SELECT * FROM user_registration WHERE user_name='".$_SESSION['user_name']."'");
@@ -422,24 +390,118 @@ if($sql->rowCount()>0){
             <img src="assets/images/white-graph.png">
          </div>
 
-         <!-- <div class="row">
+         <?php if($regDate != '') {?>
+         <div class="row">
             <div class="col-md-12 text-center">
-               <h3>REMAINING TIME:</h3>
-               <h4>01D   02H   07M   17S</h4>
-            </div>
-         </div> -->
+               <style>
+               .rainbow-text.animated{
+                  /* font-weight: 800!important; */
+                  /* font-size: 18px!important; */
+                  animation: rainbow-colors 2s linear infinite;
+                  animation-delay: calc(-2s * var(--char-percent));
+               }
+               /* Unfortunately, browsers try to take the shortest distance between transition/animation properties, so a simple `0turn` to `1turn` doesn't get the proper effect. */
+               @keyframes rainbow-colors {
+                  0% { color: hsl(0turn, 90%, 65%); }
+                  25% { color: hsl(.25turn, 90%, 65%); }
+                  50% { color: hsl(.5turn, 90%, 65%); }
+                  75% { color: hsl(.75turn, 90%, 65%); }
+                  100% { color: hsl(1turn, 90%, 65%); }
+               }
+               </style>
+               <!-- <h3>REMAINING TIME:</h3> -->
+               <h3>JOINED TIME:</h3>
+               <!-- <h4>01D   02H   07M   17S</h4> -->
+               <h4 id="countdown" class="rainbow-text animated"></h4>
 
+            </div>
+         </div>
+         <?php } ?>
+
+         <!-- <button class="upgrade-btn"><img src="assets/images/icons/upgrade.svg">Upgrade</button> -->
          <button class="upgrade-btn" onclick="window.location.href='buy-pkg.php'"><img src="assets/images/icons/upgrade.svg">Upgrade Package</button>
 
          <hr/>
-
          <p>GTRON wallet balance</p>
          <h6>$<?php echo number_format($gtron_wallet,2); ?></h6>
 
-         <!-- <button class="tree-btn">Tree View</button>
-         <button class="activated-btn">4x Activated</button> -->
+         <p>FAST TRACK BONUS</p>
 
 
+         <!-- <img src="assets/images/rewards.png" class="rewards"> -->
+         <div class="super-outer">
+         <?php
+
+
+$sql="SELECT * FROM user_registration WHERE sponsor_name = ?";
+$stmt = $con->prepare($sql); 
+$stmt->bind_param("s", $user_name);
+$stmt->execute();
+$result = $stmt->get_result(); // get the mysqli result
+
+if ($result->num_rows > 0) {
+$count = 0;
+while( $data = $result->fetch_assoc()){
+   if($count >  4) {
+      break;
+   }
+$count = $count++;
+   
+?>
+         <div class="super text-center">
+            <h2><?php echo  '$'.$data['total_invest']; ?></h2>
+            <p><?php echo  $data['user_name'];?></p>
+         </div>
+         <?php 
+  }
+    $stmt->close();
+
+    }else{
+      echo "<p class='text-default pl-4'>You Don't have any members in your Direct Team.</p>";
+      $stmt->close();
+
+    }
+
+
+ ?>
+
+         </div>
+
+
+         <button onclick="window.location.href='direct_team.php'" class="tree-btn"> View</button>
+         <style>
+            .middle .package-div .pending-btn, .blocked-btn{
+               color: grey;
+               width: 100%;
+               border: none;
+               background-color: #FFFFFF;
+               margin-top: 0.2vw;
+               font-size: 0.55vw;
+               padding: 0.4vw;
+               border-radius: 0.2vw;
+            }
+         </style>
+         <?php
+         // Assume you retrieve the registered date from the database and store it in $registeredDate
+         $registeredDate = new DateTime($regDate);
+
+         // Get the current date and time as $currentDate
+         $currentDate = new DateTime(); // This will use the current date and time
+
+         $interval = $registeredDate->diff($currentDate);
+
+         $daysInterval = $interval->days;
+
+         if($count >=4 && $daysInterval == 7){
+            ?>
+         <button class="activated-btn">4x Activated</button>
+
+         <?php } elseif($count < 4 && $daysInterval > 7)  {?>
+            <button class="blocked-btn" disabled>4x blocked</button>
+
+         <?php } else {?>
+            <button class="pending-btn" disabled>4x pending</button>
+         <?php }?>
 
       </div>
 
@@ -448,17 +510,38 @@ if($sql->rowCount()>0){
 
 
 
-
 <div class="row">
-   <div class="col-md-5 tree-div-outer">
+   <!-- <div class="col-md-5 tree-div-outer">
       <div class="tree-div">
          <img src="assets/images/tree-view.png">
          <hr/>
          <h2>Tree View</h2>
       </div>
+   </div> -->
+   <div class="col-md-5 tree-div-outer">
+      <div class="tree-div">
+         <!-- <img src="assets/images/tree-view.png"> -->
+          <div class="tree-div-inner">
+             <img src="assets/images/icons/man.svg" class="main-man">
+             <p class="text-1">MLM1</p>
+             <img src="assets/images/icons/fork.svg" class="fork">
+             <p class="text-2">MLM2</p>
+             <p class="text-3">MLM3</p>
+             <p class="text-4">MLM4</p>
+             <p class="text-5">MLM5</p>
+             <p class="text-6">MLM6</p>
+             <p class="text-7">MLM7</p>
+             <p class="text-8">MLM8</p>
+             <p class="text-9">MLM9</p>
+          </div>
+
+         <hr/>
+         <h2>Tree View</h2>
+         <a href="tree.php"><button class="view-btn">View</button></a>
+      </div>
    </div>
    <div class="col-md-7 announcements-outer">
-      <?php 
+   <?php 
          // Prepare and execute query
          $query = "SELECT * FROM announcement";
          $statement = $conn->prepare($query);
@@ -488,42 +571,46 @@ if($sql->rowCount()>0){
 
 <div class="row">
    <div class="col-md-9 token-div">
-      <!-- <p>GTron Token Wallet : <span>0xAB99a674486F9A2856958214B413a33b91F1a4Df</span></p> -->
-      <!-- <h2>$957</h2> -->
+      <!-- <p>GTron Token Wallet : <span>0xAB99a674486F9A2856958214B413a33b91F1a4Df</span></p>
+      <h2>$957</h2> -->
       <p>GTron Token Wallet : <span><?= $userUsdtTrcAdress ;?></span></p>
       <h2>$0</h2>
+      <a href="leadership-bonus.php"><button class="view-btn">View</button></a>
    </div>
 </div>
 
 
 
 </div>
-<!-- <div class="right">
+<div class="right">
    
-<button class="profile-btn">
-<img src="<?php if($userImage == 'user-profile.png	') {echo "./user-profile.png";} else { echo $userImage;};?>">
-<?php echo $fectchUserName;?></button>
+<button class="profile-btn"><img src="<?php if($userImage != '') { echo "assets/images/user-profile/".$userImage; } else {
+    echo "assets/images/icons/profile.png";
+}?>"><?php echo $fectchUserName;?></button>
+
+
 <h2><img src="assets/images/icons/withdrawals.svg">WITHDRAWALS</h2>
 
 
 <div class="row">
    <div class="col-md-6 col-6" style="padding: 0.5vw;">
-     <button class="wallet-btn">TO GTRON WALLET</button> 
+     <!-- <button onclick="window.location.href='withdrawal.php'" class="wallet-btn">TO GTRON WALLET</button>  -->
+     <button onclick="window.location.href='withdrawal.php'" class="wallet-btn">WITHDRAWAL</button> 
    </div>
     <div class="col-md-6 col-6" style="padding: 0.5vw;">
-      <button class="wallet-btn">TO CRYPTO WALLET</button> 
+      <button onclick="window.location.href='internal-wallet-transfer.php'" class="wallet-btn">Internal Wallet Transfer</button> 
     </div>
 </div>
 
 
-<div class="white-div text-center">
+<!-- <div class="white-div text-center">
    <input type="text" name="" placeholder="Enter Here">
    <button class="withdraw-btn"><img src="assets/images/icons/withdraw.svg">Withdraw</button>
-</div>
-
-
-
 </div> -->
+
+
+
+</div>
 
 </section>
 
@@ -544,7 +631,8 @@ if($sql->rowCount()>0){
 
 
    <!---------FOOTER START------>
-<?php echo footer_(); ?>
+<?php //echo footer_(); ?>
+<?php include_once("components/footer.php"); ?>
    <!---------FOOTER END------>
 
 <!--------------------------- SCRIPTS ------------------------------------->
@@ -552,10 +640,6 @@ if($sql->rowCount()>0){
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/owl.carousel.min.js"></script>
 <script src="assets/js/sweetalert2.min.js"></script>
-
-<!--Added for alert Include Bootstrap CSS and JavaScript -->
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
 <script>
 $(document).ready(function() {
         $(".copy-btn").click(function() {
@@ -582,5 +666,40 @@ $(document).ready(function() {
         });
     });
 </script>
+
+<script>
+// Replace this timestamp with the timestamp from your table
+// const tableTimestamp = new Date('2023-09-10T00:00:00Z').getTime();
+const regDate = '<?php echo $regDate; ?>';
+const tableTimestamp = new Date(regDate).getTime();
+
+function updateCountdown() {
+    // Get the current date and time
+    const now = new Date().getTime();
+
+    // Calculate the difference in milliseconds
+   //  const timeRemaining = tableTimestamp - now;
+    const timeRemaining = now - tableTimestamp;
+
+    // Calculate days, hours, minutes, and seconds
+    const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+    // Display the countdown
+    if(document.getElementById('countdown')) {
+      document.getElementById('countdown').innerHTML = `${days}D, ${hours}H, ${minutes}M, ${seconds}S`;
+    }
+}
+
+// Initial update
+updateCountdown();
+
+// Update the countdown every second
+setInterval(updateCountdown, 1000);
+</script>
+
+
 </body>
 </html>

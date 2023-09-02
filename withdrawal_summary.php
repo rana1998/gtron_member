@@ -2,7 +2,7 @@
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
-include_once("components/footer.php");
+// include_once("components/footer.php");
 
 ?>
 
@@ -66,7 +66,7 @@ include_once("components/footer.php");
       <th scope="col">After Fee</th>
       <th scope="col">Withdrawal Address</th>
       <th scope="col">Transaction Status</th>
-      <th scope="col">Date</th>
+      <th scope="col">Datetime</th>
     </tr>
   </thead>
   <tbody>
@@ -114,7 +114,7 @@ $count++;
       <th scope="col">After Fee</th>
       <th scope="col">Withdrawal Address</th>
       <th scope="col">Transaction Status</th>
-      <th scope="col">Date</th>
+      <th scope="col">Datetime</th>
     </tr>
   </thead>
 </table>
@@ -139,7 +139,8 @@ $count++;
 
 
    <!---------FOOTER START------>
-<?php echo footer_(); ?>
+<?php //echo footer_(); ?>
+<?php include_once("components/footer.php"); ?>
    <!---------FOOTER END------>
 
 <!--------------------------- SCRIPTS ------------------------------------->

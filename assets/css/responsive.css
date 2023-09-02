@@ -5,6 +5,8 @@
     display: block;
 }
 
+
+
 .navbar{
     display: block;
     background-color: #000000 !important;
@@ -50,6 +52,8 @@
     color: #F62E2E;
     border: 1px solid #351A1E;
 }
+
+
 
 .left{
     min-height: auto;
@@ -434,6 +438,22 @@ margin-bottom: 0.5rem;
 }
 
 
+.middle .package-div .super{
+    width: 24%;
+    margin: 0 auto;
+    background-color: #ffffff;
+}
+
+.middle .package-div .super h2{
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.middle .package-div .super p{
+    font-size: 0.6rem;
+}
+
+
 .middle .package-div .tree-btn{
     margin-top: 0.2rem;
     font-size: 0.55rem;
@@ -462,6 +482,102 @@ margin-bottom: 0.5rem;
     border-radius: 0.4rem;
     padding: 1rem;
 }
+
+
+/*------------TODAYS CHANGE-----------*/
+
+
+.middle .tree-div-inner{
+ height: 10rem;
+}
+
+.middle .tree-div-inner .main-man{
+    width: 1rem;
+  top: 50%;
+  left: 0.5rem;
+  transform: translate(-50%,-50%);
+}
+
+.middle .tree-div-inner .text-1{
+    font-size: 0.7rem;
+    left: -0.5rem;
+    top: 5.5rem;
+}
+
+.middle .tree-div-inner .fork{
+width: 4.8rem;
+top: 50%;
+left: 3.5rem;
+transform: translate(-50%,-50%);
+}
+
+.middle .tree-div-inner .text-2{
+    font-size: 0.7rem;
+    left: 6.5rem;
+    top: 0rem;
+}
+
+.middle .tree-div-inner .text-3{
+    font-size: 0.7rem;
+    left: 6.5rem;
+    top: 1.5rem;
+}
+
+.middle .tree-div-inner .text-4{
+    font-size: 0.7rem;
+    left: 6.5rem;
+    top: 3rem;
+}
+
+.middle .tree-div-inner .text-5{
+    font-size: 0.7rem;
+    left: 6.5rem;
+    top: 4.5rem;
+}
+
+.middle .tree-div-inner .text-6{
+    font-size: 0.7rem;
+    left: 6.5rem;
+    top: 4.5rem;
+}
+
+
+.middle .tree-div-inner .text-7{
+    font-size: 0.7rem;
+    left: 6.5rem;
+    top: 6rem;
+}
+
+.middle .tree-div-inner .text-8{
+    font-size: 0.7rem;
+    left: 6.5rem;
+    top: 7.5rem;
+}
+
+
+.middle .tree-div-inner .text-9{
+    font-size: 0.7rem;
+    left: 6.5rem;
+    top: 9rem;
+}
+
+
+.middle .tree-div .view-btn{
+    margin-top: 0.2rem;
+    font-size: 0.55rem;
+    padding: 0.4rem 1rem;
+    border-radius: 0.2rem;
+    margin-top: -1rem;
+}
+
+
+
+
+/*------------TODAYS CHANGE ENDS-----------*/
+
+
+
+
 
 
 .middle .tree-div img{
@@ -513,6 +629,8 @@ margin-bottom: 0.5rem;
 .middle .token-div{
   margin-top: 2rem;
   margin-bottom: 2rem;
+  background-color: #eff2f6;
+  border-radius: 0.4rem;
 }
 
 .middle .token-div p{
@@ -524,6 +642,15 @@ margin-bottom: 0.5rem;
     font-size: 0.7rem;
     margin-top: -1.8rem;
 }
+
+.middle .token-div .view-btn{
+    margin-bottom: 0.5rem;
+    border-radius: 0.2rem;
+    font-size: 0.8rem;
+    height: 2rem;
+}
+
+
 
 
 
@@ -876,6 +1003,37 @@ margin-top: -2.5rem;
 }
 
 
+.rightwithdrawal h2{
+    font-size: 0.8rem;
+}
+
+.rightwithdrawal h2 span{
+    font-size: 0.5rem;
+}
+
+
+.rightwithdrawal .doc_div{
+ padding: 1rem;
+ border-radius: 0.4rem;
+}
+
+.rightwithdrawal .doc_div .doc{
+    width: 3rem;
+    height: 3rem;
+}
+
+.rightwithdrawal .doc_div .choose-btn{
+    border-radius: 0.4rem;
+    font-size: 0.6rem;
+    height: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0.5rem;
+}
+
+
+
+
 .rightwithdrawal .avail_div{
 border-radius: 0.4rem;
 padding: 1rem;
@@ -1039,6 +1197,42 @@ margin-top: 1rem;
 
 
 
+/*---------------Leadership Bonus page css---------------*/
+
+
+.leadership{
+    padding: 1rem;
+    margin-top: 2rem;
+    border-radius: 1rem;
+    margin-bottom: 3rem;
+}
+
+.leadership h2{
+    font-size: 0.6rem;
+}
+
+.leadership h3{
+    font-size: 1.2rem;
+}
+
+.leadership img{
+    width: 5rem;
+    margin-top: 0.5rem;
+}
+
+.leadership th{
+    font-size: 0.6rem;
+}
+
+.leadership td{
+    font-size: 0.6rem;
+}
+
+.leadership .collapse-btn{
+ height: 2rem;
+ font-size: 0.8rem;
+ border-radius: 0.4rem;
+}
 
 
 

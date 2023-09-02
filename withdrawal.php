@@ -3,13 +3,13 @@
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
-include_once("components/footer.php");
+// include_once("components/footer.php");
 
 $page_title = 'Withdrawal Request';
 // include 'header.php'; 
 
 // Suppress warnings for this block of code
-error_reporting(E_ALL & ~E_WARNING);
+// error_reporting(E_ALL & ~E_WARNING);
     
 //Sb(QUZi5@t}
 //mailcheck@eighty5technologies.com
@@ -34,6 +34,7 @@ $sel = "select * from withdrawal_limit where id = '1'";
 $res = mysqli_query($con,$sel);
 $rr = mysqli_fetch_assoc($res);
 $withDrawalLimit = $rr['amount'];
+
 
 
 
@@ -359,7 +360,17 @@ if (empty($otpCode)) {
         <label>Request for 2FA Code</label>
         <div class="row">
            <div class="col-md-8">
+           <style>
+            .emailMessageAjax {
+              display: inline-block;
+              max-width: 300px; /* Set the maximum width for the container */
+              word-wrap: break-word; /* This property allows long words to be broken and wrapped */
+              overflow: scroll;
+            }
+          </style>
             <!-- <input type="text" name="" placeholder="Enter 2FA Code Sent on Email">   -->
+            <b class="badge bg-success text-white emailMessageAjax"></b>
+
             <input type="text" name="otpCode" class="" value="<?php echo $email; ?>" placeholder="Enter 2FA Code Sent on Email" readonly>
 
            </div>
@@ -413,7 +424,8 @@ if (empty($otpCode)) {
 
 
    <!---------FOOTER START------>
-<?php echo footer_(); ?>
+<?php //echo footer_(); ?>
+<?php include_once("components/footer.php"); ?>
    <!---------FOOTER END------>
 
 <!--------------------------- SCRIPTS ------------------------------------->
@@ -460,7 +472,7 @@ if (empty($otpCode)) {
       
       var desireValue = parseFloat($('#desireAmountWithdrawal').val());
       var avail_balance = parseFloat($('#avail_balance_withdrawal').val());
-        var per = '<?php echo $withdrawalTax1 ?>';
+        var per = '<?php echo $withdrawalTax ?>';
         console.log(per)
         finalAmount = '$'+ (desireValue - desireValue*parseFloat(per));
         amountHere = '($' + (desireValue*parseFloat(per)) + ')';

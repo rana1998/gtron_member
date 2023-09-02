@@ -2,7 +2,7 @@
 include_once("components/header_links.php");
 include_once("components/navbar.php");
 include_once("components/sidebar.php");
-include_once("components/footer.php");
+// include_once("components/footer.php");
 
 ?>
 
@@ -64,7 +64,7 @@ include_once("components/footer.php");
       <th scope="col">Bonus Amount</th>
       <th scope="col">Level</th>
       <th scope="col">Status</th>
-      <th scope="col">Date</th>
+      <th scope="col">Datetime</th>
     </tr>
   </thead>
   <tbody>
@@ -88,12 +88,7 @@ include_once("components/footer.php");
     $count++;
         }
     ?>
-    <!-- <tr>
-      <td><p>1</p></td>
-      <td><p>MLM1</p></td>
-      <td><p>$50</p></td>
-      <td><p>USDT (TRC20)</p></td>
-    </tr> -->
+
 
   </tbody>
 
@@ -104,7 +99,7 @@ include_once("components/footer.php");
       <th scope="col">Bonus Amount</th>
       <th scope="col">Level</th>
       <th scope="col">Status</th>
-      <th scope="col">Date</th>
+      <th scope="col">Datetime</th>
     </tr>
   </thead>
 </table>
@@ -129,7 +124,8 @@ include_once("components/footer.php");
 
 
    <!---------FOOTER START------>
-<?php echo footer_(); ?>
+<?php //echo footer_(); ?>
+<?php include_once("components/footer.php"); ?>
    <!---------FOOTER END------>
 
 <!--------------------------- SCRIPTS ------------------------------------->

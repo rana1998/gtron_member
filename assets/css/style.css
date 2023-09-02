@@ -63,9 +63,12 @@ a{
 	display: flex;
 }
 
+
 .navbar{
 	display: none;
 }
+
+
 
 .left{
 	background-color: #16171B;
@@ -549,6 +552,30 @@ margin-bottom: 0.5vw;
 }
 
 
+.middle .package-div .super-outer{
+	display: flex;
+}
+
+.middle .package-div .super{
+	width: 24%;
+	margin: 0 auto;
+	background-color: #ffffff;
+}
+
+.middle .package-div .super h2{
+	color: #6d1ed1;
+	font-size: 0.6vw;
+	margin-top: 0.5vw;
+}
+
+.middle .package-div .super p{
+	font-size: 0.4vw;
+	color: #000000;
+}
+
+
+
+
 .middle .package-div .tree-btn{
 	color: #FFFFFF;
 	width: 100%;
@@ -585,6 +612,113 @@ margin-bottom: 0.5vw;
 	border-radius: 0.4vw;
 	padding: 1vw;
 }
+
+
+/*------------TODAYS CHANGE-----------*/
+
+
+.middle .tree-div-inner{
+position: relative;	
+ height: 10vw;
+}
+
+.middle .tree-div-inner .main-man{
+	position: absolute;
+	width: 1vw;
+  top: 50%;
+  left: 0.5vw;
+  transform: translate(-50%,-50%);
+}
+
+.middle .tree-div-inner .text-1{
+	font-size: 0.7vw;
+	position: absolute;
+	left: -0.5vw;
+	top: 5.5vw;
+}
+
+.middle .tree-div-inner .fork{
+width: 4.8vw;
+position: absolute;
+top: 50%;
+left: 3.5vw;
+transform: translate(-50%,-50%);
+}
+
+.middle .tree-div-inner .text-2{
+	font-size: 0.7vw;
+	position: absolute;
+	left: 6.5vw;
+	top: 0vw;
+}
+
+.middle .tree-div-inner .text-3{
+	font-size: 0.7vw;
+	position: absolute;
+	left: 6.5vw;
+	top: 1.5vw;
+}
+
+.middle .tree-div-inner .text-4{
+	font-size: 0.7vw;
+	position: absolute;
+	left: 6.5vw;
+	top: 3vw;
+}
+
+.middle .tree-div-inner .text-5{
+	font-size: 0.7vw;
+	position: absolute;
+	left: 6.5vw;
+	top: 4.5vw;
+}
+
+.middle .tree-div-inner .text-6{
+	font-size: 0.7vw;
+	position: absolute;
+	left: 6.5vw;
+	top: 4.5vw;
+}
+
+.middle .tree-div-inner .text-7{
+	font-size: 0.7vw;
+	position: absolute;
+	left: 6.5vw;
+	top: 6vw;
+}
+
+.middle .tree-div-inner .text-8{
+	font-size: 0.7vw;
+	position: absolute;
+	left: 6.5vw;
+	top: 7.5vw;
+}
+
+
+.middle .tree-div-inner .text-9{
+	font-size: 0.7vw;
+	position: absolute;
+	left: 6.5vw;
+	top: 9vw;
+}
+
+
+
+.middle .tree-div .view-btn{
+    border: none;
+    background-color: #bdcad8;
+    margin-top: 0.2vw;
+    font-size: 0.55vw;
+    padding: 0.4vw 1vw;
+    border-radius: 0.2vw;
+    float: right;
+    margin-top: -1vw;
+}
+
+
+
+/*------------TODAYS CHANGE ENDS-----------*/
+
 
 
 .middle .tree-div img{
@@ -665,6 +799,18 @@ margin-bottom: 0.5vw;
 	font-size: 0.7vw;
 	float: right;
 	margin-top: -1.6vw;
+}
+
+
+.middle .token-div .view-btn{
+	width: 100%;
+	margin-bottom: 0.5vw;
+	background-color: #BDCAD8;
+	border-radius: 0.2vw;
+	border: none;
+	font-size: 0.8vw;
+	color: #000000;
+	height: 2vw;
 }
 
 
@@ -1375,4 +1521,200 @@ padding: 1vw;
 .pending .table tbody td p{
 	font-size: 0.7vw;
 	margin-bottom: 0vw;
+}
+
+
+
+/*---------------Leadership Bonus page css---------------*/
+
+
+.leadership{
+	background-color: #f5ebf4;
+	padding: 1vw;
+	margin-top: 2vw;
+	border-radius: 1vw;
+}
+
+.leadership h2{
+	font-size: 0.6vw;
+}
+
+.leadership h3{
+	color: #9a218e;
+	font-size: 1.2vw;
+	font-weight: bolder;
+}
+
+.leadership img{
+	width: 5vw;
+	margin-top: 0.5vw;
+}
+
+.leadership th{
+	font-size: 0.6vw;
+	color: #96478e;
+}
+
+.leadership td{
+	font-size: 0.6vw;
+}
+
+.leadership .collapse-btn{
+ height: 2vw;
+ font-size: 0.8vw;
+ color: #000000;
+ border: none;
+ border-radius: 0.4vw;
+ background-color: #debedb;
+ width: 100%;
+}
+
+
+
+/*-----------TREE CSS-------------*/
+
+.tree * {margin: 0; padding: 0;}
+
+.tree .man{
+	width: 1vw;
+	margin-right: 0.5vw;
+	margin-top: -0.4vw;
+}
+
+.tree ul {
+	padding-top: 20px; position: relative;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+.tree li {
+	float: left; text-align: center;
+	list-style-type: none;
+	position: relative;
+	padding: 20px 5px 0 5px;
+	
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+
+.tree li::before, .tree li::after{
+	content: '';
+	position: absolute; top: 0; right: 50%;
+	border-top: 1px solid #BDCAD8;
+	width: 50%; height: 20px;
+}
+.tree li::after{
+	right: auto; left: 50%;
+	border-left: 1px solid #BDCAD8;
+}
+
+.tree li:only-child::after, .tree li:only-child::before {
+	display: none;
+}
+
+
+.tree li:only-child{ padding-top: 0;}
+
+.tree li:first-child::before, .tree li:last-child::after{
+	border: 0 none;
+}
+
+.tree li:last-child::before{
+	border-right: 1px solid #BDCAD8;
+	border-radius: 0 5px 0 0;
+	-webkit-border-radius: 0 5px 0 0;
+	-moz-border-radius: 0 5px 0 0;
+}
+.tree li:first-child::after{
+	border-radius: 5px 0 0 0;
+	-webkit-border-radius: 5px 0 0 0;
+	-moz-border-radius: 5px 0 0 0;
+}
+
+.tree ul ul::before{
+	content: '';
+	position: absolute; top: 0; left: 50%;
+	border-left: 1px solid #BDCAD8;
+	width: 0; height: 20px;
+}
+
+.tree li a{
+	border: 1px solid #BDCAD8;
+	padding: 1em 0.75em;
+	text-decoration: none;
+	color: #666767;
+	font-family: arial, verdana, tahoma;
+	font-size: 0.85em;
+	display: inline-block;
+	transition: all 0.5s;
+	-webkit-transition: all 0.5s;
+	-moz-transition: all 0.5s;
+}
+
+
+.tree ul.vertical, ul.vertical ul {
+  padding-top: 0px;
+  left: 50%;
+}
+
+.tree ul ul.vertical::before {
+	display: none;
+}
+
+.tree ul.vertical li {
+	float: none;
+  text-align: left;
+}
+
+.tree ul.vertical li::before {
+  right: auto;
+  border: none;
+}
+
+.tree ul.vertical li::after{
+	display: none;
+}
+
+.tree ul.vertical li a{
+	padding: 10px 0.75em;
+  margin-left: 16px;
+}
+
+.tree ul.vertical li::before {
+  top: -20px;
+  left: 0px;
+	border-bottom: 1px solid #BDCAD8;
+	border-left: 1px solid #BDCAD8;
+	width: 20px; height: 60px;
+}
+
+.tree ul.vertical li:first-child::before {
+  top: 0px;
+  height: 40px;
+}
+
+
+div.tree > ul > li > ul > li > a {
+  width: 11em;
+}
+
+div.tree > ul > li > a {
+  font-size: 1em;
+  font-weight: bold;
+}
+
+.tree li a:hover, .tree li a:hover+ul li a {
+	background: #BDCAD8;
+  color: white;
+}
+
+.tree li a:hover+ul li::after, 
+.tree li a:hover+ul li::before, 
+.tree li a:hover+ul::before, 
+.tree li a:hover+ul ul::before{
+	border-color:  #aaa;
 }

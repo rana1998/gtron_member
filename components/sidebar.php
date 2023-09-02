@@ -30,7 +30,7 @@ function sidebar_($userStatus,$userKyc){ ?>
                      <li class="nav-item">
                      
                            <a style="border: 1px solid white;padding:4px" href="#" data-bs-toggle="modal" data-bs-target="#copySponsorLink" class=" text-white bg-gradient-rose-button-dark">
-                                 <img src="assets/images/icons/link.svg" class="icon">Copy Sponsor Link
+                                 <img src="assets/images/icons/link.svg" class="icon">Copy Referral Link
                            </a>
                            
                      </li>
@@ -112,7 +112,7 @@ function sidebar_($userStatus,$userKyc){ ?>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Sponsor Link</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Referral Link</h5>
         <span id="linkCopiedMsg" style="font-size:18px" class="text-success"></span>
       </div>
       <div class="modal-body">
@@ -146,7 +146,7 @@ function sidebar_($userStatus,$userKyc){ ?>
          <li >
          
                <a style="border: 1px solid white;padding:4px" href="#" data-bs-toggle="modal" data-bs-target="#copySponsorLink" class=" text-white bg-gradient-rose-button-dark">
-                     <img src="assets/images/icons/link.svg" class="icon">Copy Sponsor Link
+                     <img src="assets/images/icons/link.svg" class="icon">Copy Referral Link
                </a>
                
          </li>
@@ -212,7 +212,7 @@ function sidebar_($userStatus,$userKyc){ ?>
          copyText.setSelectionRange(0, 99999)
          document.execCommand("copy");
       //   alert("Code Copied: " + copyText.value);
-         document.getElementById("linkCopiedMsg").innerText="Sponsor Link Copied";
+         document.getElementById("linkCopiedMsg").innerText="Referral Link Copied";
       }
    </script>
 <?php } ?>

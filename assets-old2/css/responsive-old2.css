@@ -1,0 +1,1106 @@
+ @media (max-width: 650px) {          /*---------------MOBILEs-----------------*/
+
+
+#outer{
+    display: block;
+}
+
+.navbar{
+    display: block;
+    background-color: #000000 !important;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+
+.navbar .logo img{
+    width: 7rem;
+}
+
+
+.navbar ul{
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+.navbar ul li{
+    padding-bottom: 1rem;
+}
+
+
+.navbar ul a{
+    font-size: 1rem;
+    color: #ffffff;
+}
+
+.navbar ul a img{
+    width: 1rem;
+    margin-right: 0.5rem;
+}
+
+
+.navbar .logout-btn {
+    position: relative;
+    font-family: 'inter-medium', serif;
+    padding: 0.8rem;
+    width: 100%;
+    font-size: 1rem;
+    background: transparent;
+    border-radius: 1rem;
+    color: #F62E2E;
+    border: 1px solid #351A1E;
+}
+
+.left{
+    min-height: auto;
+    width: 100%;
+    padding-left: 1rem;
+    padding-top: 2.2rem;
+    padding-right: 1rem;
+    display: none;
+}
+
+.left .logo{
+    width: 5rem;
+    margin-left: 1rem;
+    margin-bottom: 2.8rem;
+}
+
+
+.left ul li{
+    padding: 0.8rem;
+    border-radius: 1rem;
+    margin-bottom: 0.2rem;
+}
+
+
+.left ul li .icon{
+    width: 0.9rem;
+    margin-right: 0.6rem;
+}
+
+
+.left ul li a{
+font-size: 0.8rem;
+}
+
+
+
+.left .logout{
+    margin-top: 1rem;
+    padding: 0.8rem;
+    font-size: 0.8rem;
+    border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+
+.left .logout img{
+    width: 1rem;
+}
+
+
+.middle{
+    min-height: auto;
+    width: 100%;
+    padding-top: 2.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+
+.middle h1{
+    font-size: 1.2rem;
+}
+
+.middle h1 img{
+    width: 2.4rem;
+    height: 2.4rem;
+    margin-right: 0.5rem;
+}
+
+.middle .input-div{
+    width: 100%;
+    float: none;
+    margin-top: 1rem;
+}
+
+
+.middle .search-icon{
+    width: 0.8rem;
+}
+
+
+.middle .search{
+    width: 100%;
+    font-size: 0.7rem;
+    padding-left: 1.8rem;
+    border-radius: 0.4rem;
+    padding-top: 0.4rem;
+    padding-bottom: 0.4rem;
+}
+
+
+
+.middle .search-btn{
+font-size: 0.7rem;
+}
+
+
+.middle .wallet-div{
+    padding: 0.4rem 0.4rem 0rem 1rem;
+    margin-top: 1rem;
+}
+
+
+.middle .wallet-div p{
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+
+/*.middle .wallet-div .copy-btn{
+  position: absolute;
+  top: 50%;
+  right: -10%;
+  transform: translate(-50%, -50%);
+      padding-left: 1rem;
+      padding-right: 1rem;
+        font-size: 0.55rem;
+        border-radius: 0.4rem;
+}
+*/
+
+.middle .wallet-div .copy-btn{
+  position: relative;
+  transform: none;
+  width: 100%;
+  top: 0%;
+  left: 0%;
+  height: 3rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+        font-size: 1rem;
+        border-radius: 0.4rem;
+        margin-bottom: 1rem;
+}
+
+
+
+
+.middle .wallet-div .copy-btn img{
+    width: 0.7rem;
+    margin-right: 0.3rem;
+}
+
+.middle .id-div{
+    margin-top: 1rem;
+    padding: 0rem;
+}
+
+.middle .id-div-inner{
+    padding: 1rem 0.4rem 0.4rem 1rem;
+    border-radius: 0.4rem;
+}
+
+.middle .id-div-inner p{
+    font-size: 1rem;
+}
+
+
+
+.middle .id-div-inner span{
+        font-size: 1rem;
+        margin-top: -2.2rem;
+        margin-right: 1rem;
+}
+
+
+.middle .l-div{
+    padding: 0rem;
+}
+
+
+.middle .violet-div{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+
+.middle .violet-div img{
+    width: 10rem;
+}
+
+
+.middle .violet-div p{
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+
+.middle .violet-div h2{
+ font-size: 1.5rem;
+ margin-top: -0.5rem;
+}
+
+
+.middle .orange-div{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.middle .orange-div p{
+    font-size: 1rem;
+}
+
+
+.middle .orange-div h2{
+ font-size: 1.5rem;
+ margin-top: -0.5rem;
+}
+
+
+.middle .orange-div img{
+    width: 3.5rem;
+}
+
+
+
+.middle .grey-div{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.middle .grey-div p{
+    font-size: 1rem;
+}
+
+
+.middle .grey-div h2{
+ font-size: 1.5rem;
+ margin-top: -0.5rem;
+}
+
+
+.middle .grey-div button{
+    width: 100%;
+    margin-top: 0.2rem;
+    font-size: 0.55rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+}
+
+
+.middle .m-div{
+    padding: 0rem;
+}
+
+
+
+.middle .pink-div{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+}
+
+
+.middle .pink-div p{
+    font-size: 1rem;
+}
+
+
+.middle .pink-div h2{
+ font-size: 1.5rem;
+ margin-top: -0.5rem;
+}
+
+
+.middle .pink-div button{
+    margin-top: 0.2rem;
+    font-size: 0.55rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+}
+
+
+.middle .pink-div img{
+    width: 6rem;
+}
+
+
+
+.middle .green-div{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.middle .green-div p{
+    font-size: 1rem;
+}
+
+
+.middle .green-div h2{
+ font-size: 1.5rem;
+ margin-top: -0.5rem;
+}
+
+
+.middle .green-div img{
+    width: 6rem;
+}
+
+
+
+.middle .blue-div{
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+
+.middle .blue-div p{
+    font-size: 1rem;
+}
+
+
+.middle .blue-div h2{
+ font-size: 1.5rem;
+ margin-top: -0.5rem;
+}
+
+
+.middle .blue-div img{
+    width: 6rem;
+}
+
+.middle .blue-div .second-row{
+    margin-top: 0.2rem;
+}
+
+
+.middle .r-div{
+    padding: 0rem;
+}
+
+
+.middle .package-div{
+    border-radius: 0.5rem;
+    margin-top: 1.5rem;
+    padding: 0.6rem;
+}
+
+
+.middle .package-div .white-div{
+padding: 0.5rem;
+border-radius: 0.2rem;
+}
+
+
+
+.middle .package-div .white-div p{
+    font-size: 1rem;
+}
+
+.middle .package-div .white-div h2{
+ font-size: 1.5rem;
+ margin-top: -0.5rem;
+}
+
+.middle .package-div .white-div img{
+width: 6rem;
+margin-bottom: 0.5rem;
+}
+
+
+.middle .package-div h3{
+    font-size: 0.55rem;
+    margin-top: 0.5rem;
+}
+
+.middle .package-div h4{
+        font-size: 0.6rem;
+        margin-top: -0.2rem;
+}
+
+
+.middle .package-div .upgrade-btn{
+    margin-top: 0.2rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+
+.middle .package-div .upgrade-btn img{
+    width: 1rem;
+    margin-right: 0.4rem;
+}
+
+
+.middle .package-div p{
+    font-size: 1rem;
+}
+
+.middle .package-div .rewards{
+    margin-top: -0.5rem;
+}
+
+
+.middle .package-div .tree-btn{
+    margin-top: 0.2rem;
+    font-size: 0.55rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+
+.middle .package-div .activated-btn{
+    margin-top: 0.2rem;
+    font-size: 0.55rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    margin-top: 0.5rem;
+}
+
+
+
+.middle .tree-div-outer{
+ padding: 0rem;
+}
+
+.middle .tree-div{
+    margin-top: 1.5rem;
+    border-radius: 0.4rem;
+    padding: 1rem;
+}
+
+
+.middle .tree-div img{
+  width: 100%;
+}
+
+.middle .tree-div h2{
+    font-size: 1rem;
+    margin-bottom: 0rem;
+}
+
+.middle .announcements-outer{
+    padding: 0rem;
+    padding-left: 0rem;
+}
+
+
+.middle .announcements{
+    margin-top: 1.5rem;
+    border-radius: 0.4rem;
+    padding: 1rem;
+}
+
+
+.middle .announcements h2{
+    font-size: 1rem;
+  padding-left: 2rem;
+}
+
+.middle .announcements h2 img{
+    left: 0.5rem;
+    width: 2rem;
+}
+
+
+.middle .announcements p{
+    font-size: 0.8rem;
+     padding-left: 2rem;
+     margin-top: 0.5rem;
+}
+
+.middle .announcements p img{
+    width: 1rem;
+    left: 0.5rem;
+}
+
+
+
+.middle .token-div{
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.middle .token-div p{
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+}
+
+.middle .token-div h2{
+    font-size: 0.7rem;
+    margin-top: -2rem;
+}
+
+
+
+.right{
+    min-height: auto;
+    width: 100%;
+    padding-top: 2.2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+
+.right .profile-btn{
+    font-size: 0.9rem;
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+}
+
+
+.right .profile-btn img{
+    width: 2rem;
+    left: 2rem;
+}
+
+.right h2{
+    font-size: 0.7rem;
+    margin-top: 3rem;
+}
+
+
+.right h2 img{
+ width: 1rem;
+ margin-right: 0.5rem;
+}
+
+
+.right .wallet-btn{
+    font-size: 0.55rem;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+}
+
+
+.right .white-div{
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+
+.right .white-div input{
+    font-size: 0.55rem;
+    padding: 0.4rem;
+}
+
+
+.right .white-div .withdraw-btn{
+    font-size: 0.55rem;
+    padding: 0.4rem;
+    border-radius: 0.2rem;
+    margin-top: 0.4rem;
+}
+
+
+.right .white-div .withdraw-btn img{
+    width: 0.7rem;
+    margin-right: 0.4rem;
+
+}
+
+
+/*-------------PROFILE PAGE-----------*/
+
+
+.middlee{
+    background-color: #eff2f5;
+    min-height: 100vh;
+    width: 100%;
+    padding-top: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+.middlee h2{
+    font-size: 1.2rem;
+}
+
+
+.middlee h2 img{
+    width: 1.2rem;
+    margin-right: 0.5rem;
+    margin-top: -0.5rem;
+}
+
+.middlee h2 .light a{
+    font-size: 0.6rem;
+    margin-left: 1rem;
+}
+
+.middlee h2 .dark a{
+    font-size: 0.6rem;
+}
+
+
+.middlee .profile-btn{
+    font-size: 0.9rem;
+    float: none;
+    margin-top: 0rem;
+    width: 15rem;
+    padding: 0.6rem;
+    border-radius: 0.4rem;
+}
+
+.middlee .profile-btn img{
+    width: 2rem;
+    left: 2rem;
+}
+
+.profilerow{
+    margin-top: 2rem;
+}
+
+
+.leftprofile{
+    border-radius: 0.5rem;
+    padding: 1.5rem 1rem 2rem 1rem;
+}
+
+.leftprofile .profile-img{
+    width: 7rem;
+    height: 7rem;
+}
+
+.leftprofile h3{
+    font-size: 0.9rem;
+    margin-top: 0.5rem;
+}
+
+
+
+.leftprofile .upload-btn{
+border-radius: 0.4rem;
+font-size: 0.6rem;
+margin-top: 1rem;
+height: 2rem;
+padding-left: 1.5rem;
+padding-right: 1.5rem;
+margin-right: 0.4rem;
+margin-bottom: 1.5rem;
+}
+
+.leftprofile .remove-btn{
+border-radius: 0.4rem;
+font-size: 0.6rem;
+margin-top: 1rem;
+height: 2rem;
+padding-left: 1.5rem;
+padding-right: 1.5rem;
+margin-bottom: 1.5rem;
+}
+
+.leftprofile h4{
+    font-size: 0.7rem;
+    margin-bottom: 0.5rem;
+}
+
+
+.rightprofile{
+    padding: 2rem 1rem 1.5rem 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+
+.rightprofile h2{
+    font-size: 1.5rem;
+}
+
+.rightprofile .save-btn{
+border-radius: 0.4rem;
+font-size: 0.6rem;
+height: 2rem;
+padding-left: 1.5rem;
+padding-right: 1.5rem;
+margin-top: -2.5rem;
+}
+
+.rightprofile .input_row{
+    margin-top: 1.5rem;
+}
+
+.rightprofile label{
+    font-size: 0.6rem;
+}
+
+.rightprofile input{
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    height: 1.8rem;
+    border-radius: 0.3rem;
+    margin-bottom: 0.6rem;
+}
+
+.rightprofile input::placeholder {
+  font-size: 0.7rem;
+}
+
+.rightprofile .second_row{
+    margin-top: 1rem;
+}
+
+
+.rightprofile select{
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    height: 1.8rem;
+    border-radius: 0.3rem;
+    margin-bottom: 0.6rem;
+}
+
+
+.rightprofile p{
+    font-size: 0.6rem;
+    margin-top: 1rem;
+}
+
+.rightprofile ul{
+    padding-left: 1rem;
+    margin-top: -0.5rem;
+}
+
+.rightprofile ul li{
+    font-size: 0.6rem;
+}
+
+
+
+/*---------BUY PAGE--------------*/
+
+.buyrow{
+    margin-top: 2rem;
+}
+
+
+.leftbuy{
+    border-radius: 0.5rem;
+    padding: 1.5rem 1rem 2rem 1rem;
+}
+
+.leftbuy h2{
+ font-size: 1.5rem;
+ margin-bottom: 1.5rem;
+}
+
+.leftbuy .green_div{
+ border-radius: 0.4rem;
+ padding: 1rem;
+}
+
+.leftbuy .green_div p{
+    font-size: 0.7rem;
+}
+
+.leftbuy .green_div h4{
+    font-size: 0.7rem;
+    margin-top: -0.6rem;
+}
+
+.leftbuy .green_div img{
+    width: 1rem;
+    margin-top: -2rem;
+}
+
+.leftbuy .grey_div{
+ border-radius: 0.4rem;
+ padding: 1rem;
+ margin-top: 0.5rem;
+}
+
+.leftbuy .grey_div p{
+    font-size: 0.7rem;
+}
+
+.leftbuy .grey_div h4{
+    font-size: 0.9rem;
+    margin-top: -0.6rem;
+}
+
+
+.rightbuy{
+    padding: 2rem 1rem 1.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.rightbuy p{
+    font-size: 0.7rem;
+}
+
+
+.rightbuy .package{
+ border-radius: 0.4rem;
+    padding: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.rightbuy .package p{
+    font-size: 0.7rem;
+}
+
+.rightbuy .package h4{
+    font-size: 1.2rem;
+    margin-top: -0.6rem;
+}
+
+
+.rightbuy .package .purchase-btn{
+    margin-top: -2.5rem;
+    border-radius: 0.4rem;
+    font-size: 0.6rem;
+    height: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+
+
+
+/*---------WITHDRAWAL PAGE--------------*/
+
+.withdrawalrow{
+    margin-top: 2rem;
+}
+
+
+.leftwithdrawal{
+    border-radius: 0.5rem;
+    padding: 1.5rem 1rem 2rem 1rem;
+}
+
+
+.leftwithdrawal h2{
+ font-size: 1.5rem;
+ margin-bottom: 0rem;
+}
+
+
+.rightwithdrawal{
+    padding: 2rem 1rem 1.5rem 1rem;
+    border-radius: 0.5rem;
+}
+
+
+.rightwithdrawal .avail_div{
+border-radius: 0.4rem;
+padding: 1rem;
+}
+
+.rightwithdrawal .avail_div p{
+    font-size: 0.6rem;
+}
+
+.rightwithdrawal .avail_div h4{
+    font-size: 0.9rem;
+    margin-top: -0.6rem;
+    margin-bottom: 0rem;
+}
+
+
+.rightwithdrawal .avail_div h6{
+    font-size: 0.55rem;
+    margin-top: -0.4rem;
+    margin-bottom: 0rem;
+}
+
+.rightwithdrawal .second{
+margin-top: 1rem;
+}
+
+
+.rightwithdrawal label{
+    font-size: 0.6rem;
+    margin-top: 1.5rem;
+}
+
+.rightwithdrawal input{
+    font-size: 0.8rem;
+    padding-left: 1rem;
+    height: 1.8rem;
+    border-radius: 0.3rem;
+}
+
+.rightwithdrawal input::placeholder {
+  font-size: 0.7rem;
+}
+
+
+.rightwithdrawal select{
+    height: 1.8rem;
+    padding-left: 1rem;
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+}
+
+.rightwithdrawal textarea{
+    padding-left: 1rem;
+    padding-top: 1rem;
+    font-size: 0.8rem;
+    border-radius: 0.3rem;
+}
+
+
+
+
+.rightwithdrawal .send-btn{
+    border-radius: 0.4rem;
+    font-size: 0.6rem;
+    height: 2rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0.5rem;
+}
+
+.rightwithdrawal .dont_p{
+    font-size: 0.6rem;
+    margin-top: 0.4rem;
+}
+
+
+.rightwithdrawal .submit-btn{
+    border-radius: 0.4rem;
+    font-size: 0.6rem;
+    height: 2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+    margin-top: 1rem;
+}
+
+
+/*-------------DIRECT TEAM PAGE---------------*/
+
+
+.profilerow{
+    margin-top: 4rem;
+}
+
+.profile_div{
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 3rem;
+}
+
+.profile_div .profile-img{
+    width: 5.5rem;
+    height: 5.5rem;
+  margin-top: -3rem;
+}
+
+.profile_div p{
+    margin-top: 0.8rem;
+    font-size: 0.7rem;
+}
+
+
+.profile_div h4{
+    font-size: 0.8rem;
+    margin-top: -0.6rem;
+}
+
+/*-------------PACKAGE SUMMARY PAGE---------------*/
+
+
+.packagerow{
+    margin-top: 2rem;
+}
+
+.package{
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+
+.package .table thead th {
+    font-size: 0.7rem;
+}
+
+
+.package .table tbody p{
+    font-size: 0.7rem;
+    margin-bottom: 0rem;
+}
+
+
+/*---------PENDING WALLET PAGE---------------*/
+
+.pendingrow{
+    margin-top: 2rem;
+}
+
+.pending{
+    padding: 1rem;
+    border-radius: 0.5rem;
+}
+
+.pending .table thead th {
+    font-size: 0.7rem;
+}
+
+.pending .table tbody td p{
+    font-size: 0.7rem;
+    margin-bottom: 0rem;
+}
+
+
+
+
+
+
+
+
+
+
+ }
+
+
+
+
+  @media (max-width: 900px)  /*-----------TABLETS--------------*/
+  and (min-width: 700px){
+   
+  
+
+
+
+  }
+
+
+
+
+
+
+
+  @media (max-width: 1300px)  /*-----------13/10 inch laptop--------------*/
+  and (min-width: 900px){
+   
+  
+
+
+
+  }
+
+
+
+
+
+
+  @media (max-width: 1930px)  /*-----------23/24 inch laptop--------------*/
+  and (min-width: 1820px){
+
+
+
+  }  
